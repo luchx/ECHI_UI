@@ -5,6 +5,8 @@ function resolve(dir) {
 }
 
 module.exports = {
+  // 基本路径
+  publicPath: "./",
   // eslint-loader 是否在保存的时候检查
   lintOnSave: false,
   // webpack配置
