@@ -30,9 +30,6 @@
 </template>
 
 <script>
-  import {
-    clearTimeout, setTimeout
-  } from 'timers';
   export default {
     name: "modal-component",
     props: {
