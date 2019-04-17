@@ -2,10 +2,11 @@
 
 > 开发Vue组件系列之模态框,主要有标题、内容、按钮个数、按钮颜色、按钮文案、按钮事件回调、遮罩层这些可配置项
 
+项目基础工程文件是使用Vue-cli 3.0搭建的,这里不过多介绍
+
 ### 使用命令行
 ```bash
-$ Vue init webpack-simple echi-modal
-$ Use sass? Yes
+$ Vue create echi-modal
 $ cd echi-modal
 $ npm install
 $ npm run dev
@@ -18,5 +19,4 @@ $ npm run build
 │   ├── components                 # 组件目录
 │   ├── App.vue                    # 项目根视图
 │   ├── main.js                    # 程序主入口
-├── index.html                     # 入口html文件
 ```

@@ -88,7 +88,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "EchiModal",
   props: {
     msg: String
   }
