@@ -66,6 +66,7 @@ module.exports = {
 ```bash
 ├── src                            # 项目源码。开发的时候代码写在这里。
 │   ├── components                 # 组件目录
+|   |   |--EchiModal               # 模态框组件
 │   ├── App.vue                    # 项目根视图
 │   ├── main.js                    # 程序主入口
 ```
