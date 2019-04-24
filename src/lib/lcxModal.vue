@@ -31,7 +31,7 @@
 
 <script>
   export default {
-    name: "modal-component",
+    name: "lcx-modal",
     props: {
       visible: {
         type: Boolean,
