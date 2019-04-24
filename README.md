@@ -4,69 +4,28 @@
 
 > 开发Vue组件系列之模态框,主要有标题、内容、定时器、按钮文案、按钮事件回调、遮罩层这些可配置项
 
-项目基础工程文件是使用Vue-cli 3.0搭建的,这里不过多介绍
+项目基础工程文件是使用Vue-cli搭建的,这里不过多介绍
 
-### 使用命令行
+### 使用命令行安装或下载
 ```bash
-$ Vue create echi-modal
-$ cd echi-modal
-$ npm install
-$ npm run serve
-$ npm run build
-$ npm run lint
+npm install lcxModal -S
 ```
 
-### 添加vue.config.js文件,配置如下
-```js
-const path = require("path");
+### 引入方式
+- import lcxModal from 'lcxModal';
+- const lcxModal = require('lcxModal');
+- <script src="xxx/lcxModal.js"></script>
 
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
+### 使用
+- Vue.use(lcxModal); 
+- Vue.component('lcxModal', lcxModal); 
 
-module.exports = {
-  // eslint-loader 是否在保存的时候检查
-  lintOnSave: false,
-  // webpack配置
-  // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: config => {
-    config.resolve.alias
-      .set("@", resolve("src"))
-  },
-  // 生产环境是否生成 sourceMap 文件
-  productionSourceMap: false,
-  // css相关配置
-  css: {
-    // 是否使用css分离插件 ExtractTextPlugin
-    extract: true,
-    // 开启 CSS source maps?
-    sourceMap: false,
-    // css预设器配置项
-    loaderOptions: {},
-    // 启用 CSS modules for all css / pre-processor files.
-    modules: false
-  },
-  // use thread-loader for babel & TS in production build
-  // enabled by default if the machine has more than 1 cores
-  parallel: require("os").cpus().length > 1,
-  devServer: {
-    port: 9595,  // 端口号
-    open: true, // 自动开启浏览器
-    compress: true, // 开启压缩
-    overlay: {
-      warnings: true,
-      errors: true
-    }
-  }
-};
-
-```
 
 ### 项目结构
 ```bash
 ├── src                            # 项目源码。开发的时候代码写在这里。
-│   ├── components                 # 组件目录
-|   |   |--EchiModal               # 模态框组件
+│   ├── lib                 # 组件目录
+|   |   |--lcxModal               # 模态框组件
 │   ├── App.vue                    # 项目根视图
 │   ├── main.js                    # 程序主入口
 ```
@@ -123,7 +82,7 @@ module.exports = {
 ```js
 <script>
   export default {
-    name: "EchiModal",
+    name: "lcxModal",
     props: {
       visible: {
         type: Boolean,
@@ -491,25 +450,25 @@ module.exports = {
         设置3秒后自动关闭
       </button>
     </div>
-    <EchiModal :visible.sync="showModel_0" title="显示默认样式"></EchiModal>
-    <EchiModal :visible.sync="showModel_1" title="显示素样式" plain></EchiModal>
-    <EchiModal :visible.sync="showModel_2" title="修改提示语" text="哈哈哈哈哈,我把提示信息修改了"></EchiModal>
-    <EchiModal :visible.sync="showModel_3" title="自定义内容" :contentStyle="{width: '600px'}">
+    <lcxModal :visible.sync="showModel_0" title="显示默认样式"></lcxModal>
+    <lcxModal :visible.sync="showModel_1" title="显示素样式" plain></lcxModal>
+    <lcxModal :visible.sync="showModel_2" title="修改提示语" text="哈哈哈哈哈,我把提示信息修改了"></lcxModal>
+    <lcxModal :visible.sync="showModel_3" title="自定义内容" :contentStyle="{width: '600px'}">
       <img alt="Vue logo" src="./assets/logo.png" />
-    </EchiModal>
-    <EchiModal :visible.sync="showModel_4" title="去除Footer" :showFooter="false"></EchiModal>
-    <EchiModal :visible.sync="showModel_5" title="去除Header" :showHeader="false"></EchiModal>
-    <EchiModal :visible.sync="showModel_6" title="设置3秒后自动关闭" :duration="3"></EchiModal>
+    </lcxModal>
+    <lcxModal :visible.sync="showModel_4" title="去除Footer" :showFooter="false"></lcxModal>
+    <lcxModal :visible.sync="showModel_5" title="去除Header" :showHeader="false"></lcxModal>
+    <lcxModal :visible.sync="showModel_6" title="设置3秒后自动关闭" :duration="3"></lcxModal>
   </div>
 </template>
 
 <script>
-  import EchiModal from "./components/EchiModal.vue";
+  import lcxModal from "./components/lcxModal.vue";
 
   export default {
     name: "app",
     components: {
-      EchiModal
+      lcxModal
     },
     data() {
       return {
