@@ -10,7 +10,7 @@ module.exports = {
   lintOnSave: true,
   configureWebpack: {
     entry: {
-      app: path.resolve(__dirname, "./examples/main.ts")
+      app: path.resolve(__dirname, "./src/main.ts")
     }
   },
   chainWebpack: config => {
@@ -19,11 +19,6 @@ module.exports = {
       .set("@img", resolve("src/assets/images"))
       .set("@css", resolve("src/assets/css"))
       .set("@scss", resolve("src/assets/scss"))
-
-    config.module
-      .rule('js')
-      .include
-      .add(path.resolve(__dirname, './examples'))
 
     config.module
       .rule('vue')

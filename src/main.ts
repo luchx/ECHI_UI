@@ -1,30 +1,20 @@
-// Require all the components that start with 'BaseXXX.vue'
-const components = require.context('../pakeages', true, /[a-z0-9]+\.vue$/);
+require('@css/reset.css');
+require('@css/animate.css');
+require('@scss/global.scss');
+require('@/utils');
 
-export function install(Vue, options = {}) {
-  // To extract the component name
-  const nameReg = /([a-z0-9]+)\./i;
-  // Registration
-  components.keys().forEach((key: any) => {
-    const name = 'c' + key.match(nameReg)[1];
-    Vue.component(name, components(key).default);
-  });
-}
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 
-const plugin = {
-  version: require('../package.json').version,
-  install,
-};
+import LcxUI from './page';
+Vue.use(LcxUI);
 
-export default plugin;
+Vue.config.productionTip = false;
 
-// Auto-install
-let GlobalVue: any = null;
-if (typeof window !== 'undefined') {
-  GlobalVue = window['Vue'];
-} else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
-}
-if (GlobalVue) {
-  GlobalVue.use(plugin);
-}
+new Vue({
+  router,
+  store,
+  render: (h) => h(App),
+}).$mount('#app');

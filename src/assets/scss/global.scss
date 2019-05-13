@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+input,
+textarea {
+  -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #CCCCCC;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #CCCCCC;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #CCCCCC;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.cf {
+  &::before {
+    display: table;
+    content: " ";
+  }
+
+  &::after {
+    display: table;
+    content: " ";
+    clear: both;
+  }
+}
+
+// 字体大小
+@for $f from 10 through 32 {
+  .fs-#{$f} {
+    font-size: #{$f}px!important;
+  }
+}
+
+// input number去掉默认样式
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
