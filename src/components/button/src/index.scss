@@ -21,6 +21,10 @@ $color-palin: rgba(26, 179, 148, 0.05);
     border-radius: 4px;
     transition: all .3s ease;
 
+    + .button {
+        margin-left: 8px;
+    }
+
     &::before {
         position: absolute;
         top: -1px;
@@ -246,35 +250,5 @@ $color-palin: rgba(26, 179, 148, 0.05);
                 background-color: rgba(245, 34, 45, 0.05);
             }
         }
-    }
-}
-
-
-button {
-  position: relative;
-}
-
-button:hover {
-    cursor: pointer;
-    animation: jelly 0.5s;
-}
-
-@keyframes jelly {
-
-    0%,
-    100% {
-        transform: scale(1, 1);
-    }
-
-    25% {
-        transform: scale(0.9, 1.1);
-    }
-
-    50% {
-        transform: scale(1.1, 0.9);
-    }
-
-    75% {
-        transform: scale(0.95, 1.05);
     }
 }

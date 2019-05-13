@@ -16,12 +16,12 @@
                 </main>
                 <footer class="modal-footer" v-if="showFooter">
                     <slot name="footer">
-                        <button class="modal-btn modal-btn-primary" @click.stop="onConfirm">
+                        <CButton type="primary" :width="80" @click.stop="onConfirm">
                             {{ confirmBtnText }}
-                        </button>
-                        <button class="modal-btn modal-btn-default" @click.stop="onClose">
+                        </CButton>
+                        <CButton type="default" :width="80" @click.stop="onClose">
                             {{ cancelBtnText }}
-                        </button>
+                        </CButton>
                     </slot>
                 </footer>
             </section>

@@ -1,13 +1,15 @@
 import Button from './components/button';
+import Modal from './components/modal';
 
 const components = [
-  Button
+  Button,
+  Modal
 ];
 
 export function install(Vue, options = {}) {
   // Registration
-  components.forEach((Com: any) => {
-    Vue.use(Com);
+  components.forEach((component: any) => {
+    Vue.use(component);
   });
 }
 
@@ -26,4 +28,5 @@ export default {
   version: require('../package.json').version,
   install,
   Button,
+  Modal,
 };

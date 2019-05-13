@@ -1,6 +1,7 @@
 require('@css/reset.css');
 require('@css/animate.css');
 require('@scss/global.scss');
+require('@scss/animation.scss');
 require('@/utils');
 
 import Vue from 'vue';

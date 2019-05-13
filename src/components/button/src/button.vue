@@ -1,5 +1,5 @@
 <template>
-    <button class="button" :class="[
+    <button class="button jelly" :class="[
             type ? 'button-' + type : '',
             {'button-plain': plain},
             {'button-disabled': buttonDisabled},
