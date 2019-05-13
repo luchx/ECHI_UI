@@ -5,8 +5,8 @@ export function install(Vue, options = {}) {
   // To extract the component name
   const nameReg = /([a-z0-9]+)\./i;
   // Registration
-  components.keys().forEach((key) => {
-    const name = key.match(nameReg)[1];
+  components.keys().forEach((key: any) => {
+    const name = 'c' + key.match(nameReg)[1];
     Vue.component(name, components(key).default);
   });
 }
@@ -19,7 +19,7 @@ const plugin = {
 export default plugin;
 
 // Auto-install
-let GlobalVue = null;
+let GlobalVue: any = null;
 if (typeof window !== 'undefined') {
   GlobalVue = window['Vue'];
 } else if (typeof global !== 'undefined') {

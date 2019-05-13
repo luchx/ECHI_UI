@@ -3,8 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-import VueUi from '../src/main';
-Vue.use(VueUi);
+import LcxUi from '../src/main';
+Vue.use(LcxUi);
 
 Vue.config.productionTip = false;
 
