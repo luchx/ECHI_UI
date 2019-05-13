@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    ["component", 
+      {
+         "libraryName": "lcx-ui",
+         "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
