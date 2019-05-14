@@ -42,7 +42,7 @@
 	import {
 		Modal,
 		Button
-	} from 'lcxUI';
+	} from 'lcx-ui';
 	Vue.use(Modal);
 	Vue.use(Button);
 

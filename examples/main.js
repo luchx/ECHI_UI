@@ -8,8 +8,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 
-// import LcxUI from 'lcx-ui';
-// Vue.use(LcxUI);
+// import lcx-ui from 'lcx-ui';
+// Vue.use(lcx-ui);
 
 Vue.config.productionTip = false;
 

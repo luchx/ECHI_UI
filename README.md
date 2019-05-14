@@ -1,34 +1,38 @@
-# ui-components
+# lcx-ui
 
-## Project setup
-```
-npm install
-```
+一个基于Vue CLI 3.0，Babel7，VUE2.6封装的VUE-UI组件库模版，
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
+## 安装
+
+```bash
+yarn add bes-ui -S
+# OR
+npm install bes-ui -S
 ```
 
-### Run your tests
-```
-npm run test
+## 示例
+
+```js
+// 统一加载
+import lcxUI from 'lcx-ui'
+Vue.use(lcxUI)
+
+// 只加载部分
+import { Modal } from 'lcx-ui'
+Vue.use(Modal)
 ```
 
-### Lints and fixes files
-```
-npm run lint
+```html
+<!-- 引入样式 -->
+<link rel="stylesheet" href="/package/lcx-ui.css">
+<!-- 引入脚本 -->
+<script src="/package/lcx-ui.umd.min.js"></script>
+<script>
+    Vue.use(window['lcx-ui'])
+</script>
 ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## License
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Copyright (c) 2019-present, Echi

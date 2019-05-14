@@ -8,7 +8,7 @@
 	import Vue from 'vue';
 	import {
 		Button
-	} from 'lcxUI';
+	} from 'lcx-ui';
 	Vue.use(Button);
 
 	export default {
