@@ -2,17 +2,14 @@ require('@css/reset.css');
 require('@css/animate.css');
 require('@scss/global.scss');
 require('@/utils');
+// require('../lib/theme-chalk/index.scss');
 
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 
-import LcxUI from 'lcx-ui';
-Vue.use(LcxUI);
-
-import {Modal} from 'lcx-ui';
-console.log(Modal)
-Vue.use(Modal);
+// import LcxUI from 'lcx-ui';
+// Vue.use(LcxUI);
 
 Vue.config.productionTip = false;
 

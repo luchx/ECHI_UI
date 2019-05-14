@@ -20,4 +20,3 @@
     </button>
 </template>
 <script src="./index.js"></script>
-<style lang="scss" src="../../theme-chalk/button.scss" scoped></style>

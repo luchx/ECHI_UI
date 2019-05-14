@@ -38,6 +38,14 @@
 </template>
 
 <script>
+	import Vue from 'vue';
+	import {
+		Modal,
+		Button
+	} from 'lcxUI';
+	Vue.use(Modal);
+	Vue.use(Button);
+
 	export default {
 		data() {
 			return {

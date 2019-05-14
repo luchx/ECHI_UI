@@ -1,9 +1,9 @@
 {
   "plugins": [
-    ["component", 
+    ["component",
       {
-         "libraryName": "lcx-ui",
-         "styleLibraryName": "theme-chalk"
+        "libraryName": "lcx-ui",
+        "styleLibraryName": "~node_modules/lcx-ui/static"
       }
     ]
   ]

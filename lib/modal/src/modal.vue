@@ -30,4 +30,3 @@
 </template>
 
 <script src="./index.js"></script>
-<style lang="scss" src="../../theme-chalk/modal.scss" scoped></style>
