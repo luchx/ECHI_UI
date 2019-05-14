@@ -18,10 +18,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "analysis": "vue-cli-service build --report",
+    "build:report": "vue-cli-service build --report",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "lib": "vue-cli-service build --target lib --name lcx-ui --dest package lib/index.js"
+    "build:lib": "vue-cli-service build --target lib --name lcx-ui --dest package lib/index.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
