@@ -5,11 +5,6 @@
 </template>
 
 <script>
-	import Vue from 'vue';
-	import {
-		Button
-	} from 'lcx-ui';
-	Vue.use(Button);
 
 	export default {
 		data() {

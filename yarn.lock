@@ -5891,6 +5891,16 @@ lcx-ui@^0.1.6:
     vue "^2.6.10"
     vue-router "^3.0.3"
 
+lcx-ui@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-0.2.0.tgz#860c0f467127e25d87396812aa9b9cadab88568d"
+  integrity sha512-t+BDkBOX0WDBI+YYcAVgK6sMfClTX23UFtgq6NDahC/czpp/9t3PXwet99AACQDJpJlq254LNRqlfMoa1IZinw==
+  dependencies:
+    core-js "^2.6.5"
+    lcx-ui "^0.1.6"
+    vue "^2.6.10"
+    vue-router "^3.0.3"
+
 left-pad@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
