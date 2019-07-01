@@ -1,7 +1,7 @@
 {
   "name": "lcx-ui",
-  "version": "0.2.0",
-  "author": "Echi",
+  "version": "0.2.2",
+  "author": "Echi <luchx1993@gmail.com>",
   "keywords": [
     "templete",
     "vue",
@@ -47,10 +47,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Echi1993/ui-components.git"
+    "url": "git+https://github.com/luchx/ECHI_VUE_COMPONENTS.git"
   },
   "bugs": {
-    "url": "https://github.com/Echi1993/ui-components/issues"
+    "url": "https://github.com/luchx/ECHI_VUE_COMPONENTS/issues"
   },
-  "homepage": "https://github.com/Echi1993/ui-components#readme"
+  "homepage": "https://github.com/luchx/ECHI_VUE_COMPONENTS#readme"
 }
