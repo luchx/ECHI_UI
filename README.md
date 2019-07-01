@@ -8,7 +8,7 @@
 
 ### 使用命令行安装或下载
 ```bash
-npm install lcxModal -S
+npm install lcx-modal -S
 ```
 
 ### 引入方式
