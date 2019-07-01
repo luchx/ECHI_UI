@@ -1,14 +1,14 @@
 {
   "name": "lcx-modal",
   "description": "开发Vue组件系列之模态框,主要有标题、内容、按钮个数、按钮颜色、按钮文案、按钮事件回调、遮罩层这些可配置项",
-  "version": "1.0.2",
-  "author": "Echi <914743765@qq.com>",
+  "version": "1.0.3",
+  "author": "Echi <luchx1993@gmail.com>",
   "license": "MIT",
   "private": false,
   "main": "dist/lcxModal.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Echi1993/echi-modal"
+    "url": "https://github.com/luchx/ECHI_UI_MODAL"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
