@@ -6,9 +6,9 @@
 ## 安装
 
 ```bash
-yarn add bes-ui -S
+yarn add lcx-ui -S
 # OR
-npm install bes-ui -S
+npm install lcx-ui -S
 ```
 
 ## 示例
