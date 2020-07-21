@@ -1,88 +1,3 @@
-<<<<<<< HEAD
-# lcx-ui
-
-一个基于Vue CLI 3.0，Babel7，VUE2.6封装的VUE-UI组件库模版，
-
-
-## 安装
-
-```bash
-yarn add lcx-ui -S
-# OR
-npm install lcx-ui -S
-```
-
-## 示例
-
-```js
-// 统一加载
-import lcxUI from 'lcx-ui'
-Vue.use(lcxUI)
-
-// 只加载部分
-import { Modal } from 'lcx-ui'
-Vue.use(Modal)
-```
-
-```html
-<!-- 引入样式 -->
-<link rel="stylesheet" href="/package/lcx-ui.css">
-<!-- 引入脚本 -->
-<script src="/package/lcx-ui.umd.min.js"></script>
-<script>
-    Vue.use(window['lcx-ui'])
-</script>
-```
-
-## License
-
-Copyright (c) 2019-present, Echi
-=======
-# 开发Vue组件系列之模态框
-
-## 记录日期为2019-04-17
-
-> 开发Vue组件系列之模态框,主要有标题、内容、定时器、按钮文案、按钮事件回调、遮罩层这些可配置项
-
-项目基础工程文件是使用Vue-cli搭建的,这里不过多介绍
-
-### 使用命令行安装或下载
-```bash
-npm install lcx-modal -S
-```
-
-### 引入方式
-- import lcxModal from 'lcxModal';
-- const lcxModal = require('lcxModal');
-- <script src="xxx/lcxModal.js"></script>
-
-### 使用
-- Vue.use(lcxModal); 
-- Vue.component('lcxModal', lcxModal); 
-
-
-### 项目结构
-```bash
-├── src                            # 项目源码。开发的时候代码写在这里。
-│   ├── lib                 # 组件目录
-|   |   |--lcxModal               # 模态框组件
-│   ├── App.vue                    # 项目根视图
-│   ├── main.js                    # 程序主入口
-```
-
-### 部分截图
-
-<div align="center">
-    <img src="statics/default.png" width="300" alt="默认样式" />
-    <img src="statics/plain.png" width="300" alt="素样式" />
-    <img src="statics/define.png" width="300" alt="自定义样式" />
-</div>
-
-### modal组件模板
-
-> 使用 `transition` 可以为组件添加动效;对应的组件模板内容如下
-
-```html
 <template>
   <transition name="toggle">
     <section class="modal" v-show="visible">
@@ -113,16 +28,10 @@ npm install lcx-modal -S
     </section>
   </transition>
 </template>
-```
 
-### 添加组件属性及操作方法
-
-> 添加组件的属性,其中`duration`属性如果设定的数值小于10,则会乘以1000;否则按传递的数值计算
-
-```js
 <script>
   export default {
-    name: "lcxModal",
+    name: "lcx-modal",
     props: {
       visible: {
         type: Boolean,
@@ -176,6 +85,7 @@ npm install lcx-modal -S
         type: Boolean,
         default: false
       },
+      // 如果设定的数值小于10,则会乘以1000;否则按传递的数值计算
       duration: {
         type: Number,
         default: 0
@@ -229,10 +139,7 @@ npm install lcx-modal -S
     }
   };
 </script>
-```
 
-### 添加样式声明
-```css
 <style scoped lang="scss">
   *,
   :after,
@@ -459,71 +366,3 @@ npm install lcx-modal -S
     transition: all ease .2s;
   }
 </style>
-```
-
-### 使用
-
-```html
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <div>
-      <button @click.stop="showModel_0 = true">
-        显示默认样式
-      </button>
-      <button @click.stop="showModel_1 = true">
-        显示素样式
-      </button>
-      <button @click.stop="showModel_2 = true">
-        修改提示语
-      </button>
-      <button @click.stop="showModel_3 = true">
-        自定义内容
-      </button>
-      <button @click.stop="showModel_4 = true">
-        去除Footer
-      </button>
-      <button @click.stop="showModel_5 = true">
-        去除Header
-      </button>
-      <button @click.stop="showModel_6 = true">
-        设置3秒后自动关闭
-      </button>
-    </div>
-    <lcxModal :visible.sync="showModel_0" title="显示默认样式"></lcxModal>
-    <lcxModal :visible.sync="showModel_1" title="显示素样式" plain></lcxModal>
-    <lcxModal :visible.sync="showModel_2" title="修改提示语" text="哈哈哈哈哈,我把提示信息修改了"></lcxModal>
-    <lcxModal :visible.sync="showModel_3" title="自定义内容" :contentStyle="{width: '600px'}">
-      <img alt="Vue logo" src="./assets/logo.png" />
-    </lcxModal>
-    <lcxModal :visible.sync="showModel_4" title="去除Footer" :showFooter="false"></lcxModal>
-    <lcxModal :visible.sync="showModel_5" title="去除Header" :showHeader="false"></lcxModal>
-    <lcxModal :visible.sync="showModel_6" title="设置3秒后自动关闭" :duration="3"></lcxModal>
-  </div>
-</template>
-
-<script>
-  import lcxModal from "./components/lcxModal.vue";
-
-  export default {
-    name: "app",
-    components: {
-      lcxModal
-    },
-    data() {
-      return {
-        showModel_0: false,
-        showModel_1: false,
-        showModel_2: false,
-        showModel_3: false,
-        showModel_4: false,
-        showModel_5: false,
-        showModel_6: false,
-      }
-    }
-  };
-</script>
-```
-
-> 感谢那您的观看,以上就是我为大家带来的模态框组件,如果对您有帮助,请为我点个小星星
->>>>>>> modal
