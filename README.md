@@ -1,2 +1,24 @@
-# ECHI_UI_MODAL
-开发Vue组件系列之模态框,主要有标题、内容、按钮个数、按钮颜色、按钮文案、按钮事件回调、遮罩层这些可配置项
+# modal
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
