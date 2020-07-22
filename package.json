@@ -1,6 +1,6 @@
 {
-  "name": "vue_tsx",
-  "version": "0.0.0",
+  "name": "echi-ui",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
