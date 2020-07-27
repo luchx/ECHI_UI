@@ -82,11 +82,16 @@ const TipsProvider = {
   name: "TipsProvider",
   mounted() {
     on(this.$el, "mousemove", this.handleEnter);
+    on(this.$el, "mouseleave", this.handleLeave);
   },
   beforeDestory() {
     off(this.$el, "mousemove", this.handleEnter);
+    off(this.$el, "mouseleave", this.handleLeave);
   },
   methods: {
+    handleLeave() {
+      TipsInstance.close();
+    },
     handleEnter(event) {
       const target = event.target;
       const targetRect = target.getBoundingClientRect();
