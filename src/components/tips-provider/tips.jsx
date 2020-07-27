@@ -6,7 +6,7 @@ export default {
     return {
       visible: false,
       title: null,
-      offset: 8, //偏移值，避免直接在 dom 对象贴边出现
+      offset: 16, //偏移值，避免直接在 dom 对象贴边出现
       top: 0,
       left: 0,
       timer: null,
