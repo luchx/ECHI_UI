@@ -26,14 +26,6 @@ import { isType } from "@/utils/index";
  *    <div v-tips.bottom="下侧展示">挂载节点</div>
  *    <div v-tips.left="左侧展示">挂载节点</div>
  * </tips-provider>
- *
- * 以属性名调用、jsx 中推荐用法
- * <tips-provider>
- *    <div data-tips="上侧展示" data-position="top">挂载节点</div>
- *    <div data-tips="右侧展示" data-position="right">挂载节点</div>
- *    <div data-tips="下侧展示" data-position="bottom">挂载节点</div>
- *    <div data-tips="左侧展示" data-position="left">挂载节点</div>
- * </tips-provider>
  * 
  * jsx 中使用指令调用
  * <tips-provider>
@@ -115,26 +107,6 @@ const TipsProvider = {
         });
         return;
       }
-
-      // 通过 dom 属性挂载的对象，注意此处返回的是一个类数组
-      const selectTips = this.$el.querySelectorAll("[data-tips]") || [];
-      const selectTarget = [...selectTips].find((item) =>
-        item.contains(target)
-      );
-
-      if (!selectTarget) {
-        return;
-      }
-      // 获取dom 节点的 data-tips 属性
-      const dataTips = selectTarget.getAttribute("data-tips");
-      // 获取dom 节点的 data-position 属性
-      const position = selectTarget.getAttribute("data-position");
-
-      TipsInstance.open({
-        title: dataTips,
-        elRect: targetRect,
-        position,
-      });
     },
   },
   render() {
