@@ -130,6 +130,13 @@ export default {
         el.__TipsVNode__ = vNode;
         tipsEleQuene.add(el);
       },
+      update(el, binding, vNode) {
+        tipsEleQuene.delete(el);
+        el.__TipsValue__ = binding.value;
+        el.__TipsModifiers__ = binding.modifiers;
+        el.__TipsVNode__ = vNode;
+        tipsEleQuene.add(el);
+      },
       unbind(el) {
         tipsEleQuene.delete(el);
       },
