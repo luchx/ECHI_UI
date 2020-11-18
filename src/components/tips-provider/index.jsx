@@ -68,7 +68,7 @@ import { isType } from "@/utils/index";
 //  存储 Tips 对象实例
 let TipsInstance = null;
 // 定义一个 Set 存储 dom
-const tipsEleQuene = new Set();
+const tipsEleQueue = new Set();
 
 const TipsProvider = {
   name: "TipsProvider",
@@ -76,7 +76,7 @@ const TipsProvider = {
     on(this.$el, "mousemove", this.handleEnter);
     on(this.$el, "mouseleave", this.handleLeave);
   },
-  beforeDestory() {
+  beforeDestroy() {
     off(this.$el, "mousemove", this.handleEnter);
     off(this.$el, "mouseleave", this.handleLeave);
   },
@@ -88,7 +88,7 @@ const TipsProvider = {
       const target = event.target;
       const targetRect = target.getBoundingClientRect();
       TipsInstance.close();
-      const activeDom = [...tipsEleQuene].find((item) => item.contains(target));
+      const activeDom = [...tipsEleQueue].find((item) => item.contains(target));
 
       // 通过指令挂载的对象
       if (activeDom) {
@@ -128,17 +128,17 @@ export default {
         el.__TipsValue__ = binding.value;
         el.__TipsModifiers__ = binding.modifiers;
         el.__TipsVNode__ = vNode;
-        tipsEleQuene.add(el);
+        tipsEleQueue.add(el);
       },
       update(el, binding, vNode) {
-        tipsEleQuene.delete(el);
+        tipsEleQueue.delete(el);
         el.__TipsValue__ = binding.value;
         el.__TipsModifiers__ = binding.modifiers;
         el.__TipsVNode__ = vNode;
-        tipsEleQuene.add(el);
+        tipsEleQueue.add(el);
       },
       unbind(el) {
-        tipsEleQuene.delete(el);
+        tipsEleQueue.delete(el);
       },
     });
   },
