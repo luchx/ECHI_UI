@@ -3,6 +3,8 @@ declare module "*.vue" {
   export default Vue;
 }
 
-declare module "*.less";
+declare module "vue/types/vue" {
+  interface Vue {}
+}
 
-declare module "*.png";
+declare module "@packages"

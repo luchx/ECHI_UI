@@ -1,0 +1,8 @@
+{
+  "name": "@mui/theme",
+  "version": "1.0.0",
+  "description": "样式文件",
+  "main": "index.scss",
+  "author": "Echi",
+  "license": "ISC"
+}

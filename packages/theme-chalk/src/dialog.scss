@@ -1,0 +1,33 @@
+.#{$prefix} {
+  &-dialog {
+    .el-dialog__header {
+      background: #f5f7fa;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      padding-top: 14px;
+      line-height: normal;
+      .el-dialog__title {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    .el-dialog__body {
+      padding: 30px 40px;
+    }
+    .el-dialog__footer {
+      border-top: 1px solid #eee;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      text-align: center;
+      .el-button+.el-button {
+        margin-left: 16px;
+      }
+    }
+
+    .el-textarea__inner {
+      border-radius: 4px;
+    }
+  }
+}

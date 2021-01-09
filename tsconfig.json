@@ -6,18 +6,20 @@
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
-    "noImplicitAny": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "node",
       "webpack-env"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "src/*",
+      ],
+      "@packages": [
+        "packages/*",
       ]
     },
     "lib": [
@@ -31,6 +33,14 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    "packages/*/src",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/**/*.vue",
+    "packages/business/**/src",
+    "packages/business/**/src/**/*.ts",
+    "packages/business/**/src/**/*.tsx",
+    "packages/business/**/src/**/*.vue",
   ],
   "exclude": [
     "node_modules"

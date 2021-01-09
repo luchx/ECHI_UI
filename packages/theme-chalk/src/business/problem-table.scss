@@ -1,0 +1,100 @@
+.#{$prefix} {
+  &-problemTable {
+    .el-table-column--selection > .cell {
+      padding-left: 24px;
+    }
+    .el-table th {
+      padding: 12px 0;
+      background-color: $color-bg;
+    }
+    .el-table th.gutter {
+      display: table-cell !important;
+    }
+
+    .el-table colgroup.gutter {
+      display: table-cell !important;
+    }
+    .mui-problemTable-tab {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+    .mui-problemTable-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background-color: $color-bg;
+    }
+    .mui-problemTable-room_icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      text-align: center;
+      line-height: 14px;
+      margin-right: 8px;
+      color: #b8bfc7;
+      background-color: #ecf0f4;
+    }
+    .mui-problemTable-page {
+      display: flex;
+      justify-content: flex-end;
+      padding: 24px 0;
+    }
+
+    .mui-problemTable-tag {
+      display: inline-block;
+      padding: 0 4px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 12px;
+      margin-right: 6px;
+      border-radius: 2px;
+      box-sizing: border-box;
+      white-space: nowrap;
+      &_danger {
+        background-color: rgba(241, 110, 75, 0.2);
+        color: #f16e4b;
+      }
+      &_orange {
+        background-color: rgba(253, 136, 54, 0.2);
+        color: #fd8836;
+      }
+      &_yellow {
+        background-color: rgba(255, 189, 27, 0.2);
+        color: #ffbd1b;
+      }
+      &_magenta {
+        background-color: rgba(170, 88, 229, 0.2);
+        color: #aa58e5;
+      }
+      &_deepRed {
+        background-color: rgba(181, 94, 79, 0.2);
+        color: #b55e4f;
+      }
+    }
+  }
+}
+
+.mui-problemTable-room_box {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 8px 0;
+  .title {
+    display: inline-block;
+    width: 50px;
+    min-width: 50px;
+  }
+  .desc {
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+
+    > div {
+      margin-right: 8px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@mui/dialog",
+  "version": "1.0.0",
+  "description": "Dialog 对话框",
+  "main": "dist/dialog.common.js",
+  "module": "dist/dialog.umd.js",
+  "unpkg": "dist/dialog.umd.min.js",
+  "author": "Echi",
+  "license": "ISC"
+}

@@ -1,0 +1,30 @@
+.#{$prefix} {
+  &-multiTag {
+    display: block;
+    width: 100%;
+    .el-dropdown {
+      width: 100%;
+    }
+    .mui-multiTag-box {
+      display: block;
+      padding: 16px;
+      border: 1px solid $color-border;
+      .el-tag {
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+      .el-tag__close.el-icon-close {
+        background-color: #c0c4cc;
+        right: -7px;
+        top: 0;
+        color: #fff;
+      }
+      .mui-multiTag-input .el-input__inner {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border-color: transparent;
+      }
+    }
+  }
+}

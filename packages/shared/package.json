@@ -1,0 +1,10 @@
+{
+  "name": "@mui/shared",
+  "version": "1.0.0",
+  "description": "共享工具代码",
+  "main": "dist/shared.common.js",
+  "module": "dist/shared.umd.js",
+  "unpkg": "dist/shared.umd.min.js",
+  "author": "Echi",
+  "license": "ISC"
+}
