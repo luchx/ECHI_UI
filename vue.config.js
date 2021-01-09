@@ -30,7 +30,6 @@ module.exports = {
     //   .tap(options => {
     //     return options;
     //   });
-
     // config.plugins.delete("html");
     // config.plugins.delete("preload");
     // config.plugins.delete("prefetch");

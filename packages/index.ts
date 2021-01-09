@@ -61,7 +61,7 @@ import MTooltip from "./tooltip";
 
 interface Components {
   [key: string]: any;
-};
+}
 const components: Components = {
   /* 基础组件 */
   MDialog,

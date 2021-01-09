@@ -1,6 +1,6 @@
 # 前端 UI 库
 
-> 基于 `element-ui` 二次封装的 UI 组件库
+> 基于 `element-ui` 二次封装的 UI 组件库~
 
 ## 安装
 

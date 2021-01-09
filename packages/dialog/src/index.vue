@@ -27,21 +27,21 @@ export default {
     },
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     showFooter: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 判断是否关闭，支持回调 next 关闭
     beforeClose: {
       type: Function,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      show: false,
+      show: false
     };
   },
   watch: {
@@ -50,7 +50,7 @@ export default {
     },
     show(nv) {
       this.$emit("update:visible", nv);
-    },
+    }
   },
   methods: {
     close() {
@@ -65,7 +65,7 @@ export default {
     },
     confirm() {
       this.$emit("confirm");
-    },
-  },
+    }
+  }
 };
 </script>

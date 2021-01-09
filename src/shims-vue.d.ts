@@ -7,4 +7,4 @@ declare module "vue/types/vue" {
   interface Vue {}
 }
 
-declare module "@packages"
+declare module "@packages";

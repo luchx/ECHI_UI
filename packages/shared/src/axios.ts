@@ -1,3 +1,3 @@
-const axios = {}
+const axios = {};
 
 export default axios;
