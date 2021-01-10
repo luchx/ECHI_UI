@@ -9807,7 +9807,7 @@ rollup-plugin-buble@^0.19.8:
 
 rollup-plugin-node-builtins@^2.1.2:
   version "2.1.2"
-  resolved "https://registry.npm.taobao.org/rollup-plugin-node-builtins/download/rollup-plugin-node-builtins-2.1.2.tgz#24a1fed4a43257b6b64371d8abc6ce1ab14597e9"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-builtins/-/rollup-plugin-node-builtins-2.1.2.tgz#24a1fed4a43257b6b64371d8abc6ce1ab14597e9"
   integrity sha1-JKH+1KQyV7a2Q3HYq8bOGrFFl+k=
   dependencies:
     browserify-fs "^1.0.0"

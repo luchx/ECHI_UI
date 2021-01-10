@@ -86,38 +86,29 @@ const tsPlugin = typescript({
 const baseConfig = {
   input: "packages/index.ts",
   external: ["vue"],
-  plugins: {
-    preVue: [
-      tsPlugin,
-      vue({
-        css: true,
-        compileTemplate: true
-      }),
-      alias({
-        resolve: [".js", ".jsx", ".ts", ".tsx", ".vue"],
-        entries: {
-          vue$: "vue/dist/vue.common.js",
-          "@": resolve("src"),
-          "@packages": resolve("packages")
-        }
-      }),
-      scss({
-        prefix: `@import "packages/theme-chalk/src/theme.scss";`,
-        output: "dist/mui.min.css",
-        processor: css =>
-          postcss([autoprefixer(), cssnano()])
-            .process(css, { from: undefined })
-            .then(result => result.css)
-      })
-    ],
-    replace: {
-      "process.env.NODE_ENV": JSON.stringify("production"),
-      "process.env.ES_BUILD": JSON.stringify("false")
-    },
-    babel: {
-      objectAssign: "Object.assign"
-    }
-  }
+  plugins: [
+    tsPlugin,
+    vue({
+      css: true,
+      compileTemplate: true
+    }),
+    alias({
+      resolve: [".js", ".jsx", ".ts", ".tsx", ".vue"],
+      entries: {
+        vue$: "vue/dist/vue.common.js",
+        "@": resolve("src"),
+        "@packages": resolve("packages")
+      }
+    }),
+    scss({
+      prefix: `@import "packages/theme-chalk/src/theme.scss";`,
+      output: "dist/mui.min.css",
+      processor: css =>
+        postcss([autoprefixer(), cssnano()])
+          .process(css, { from: undefined })
+          .then(result => result.css)
+    })
+  ]
 };
 
 const terserConfig = function(format) {
@@ -152,15 +143,14 @@ function buildConfig() {
       ...baseConfig,
       output: outputConfigs(format),
       plugins: [
-        ...baseConfig.plugins.preVue,
         replace({
-          ...baseConfig.plugins.replace,
+          "process.env.NODE_ENV": JSON.stringify("production"),
           ...(format === "es"
             ? { "process.env.ES_BUILD": JSON.stringify("true") }
             : {})
         }),
         babel({
-          ...baseConfig.plugins.babel,
+          objectAssign: "Object.assign",
           ...(format === "es" ? { jsx: "h" } : {})
         }),
         ...nodePlugins(format),
