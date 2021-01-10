@@ -81,15 +81,18 @@ const install: InstallFunction = function(Vue: VueConstructor) {
 };
 
 // Auto-install when vue is found (eg. in browser via <script> tag)
-const ES_BUILD = JSON.parse(process.env.ES_BUILD) !== true;
-/* eslint-disable-next-line no-redeclare */
-if (ES_BUILD && typeof window !== "undefined" && window.Vue) {
+if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
 // 版本信息
+import { version } from "../package.json";
+if (process.env.NODE_ENV === "production") {
+  console.log(`running version ${version}`);
+}
+
 export default {
-  version: require("../package.json").version,
+  version,
   install,
   ...components
 };

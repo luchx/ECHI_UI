@@ -4,7 +4,8 @@ import vue from "rollup-plugin-vue";
 import alias from "@rollup/plugin-alias";
 import typescript from "rollup-plugin-typescript2";
 import replace from "@rollup/plugin-replace";
-import babel from "rollup-plugin-buble";
+import json from "rollup-plugin-json";
+import buble from "rollup-plugin-buble";
 import scss from "rollup-plugin-scss";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
@@ -20,10 +21,6 @@ function resolve(dir) {
 
 const format = !argv.format || argv.format;
 
-const globals = {
-  vue: "Vue",
-  "element-ui": "elementUi"
-};
 const outputConfigs = function(format) {
   const suffix = {
     cjs: "cjs",
@@ -43,17 +40,17 @@ const outputConfigs = function(format) {
       exports: "named",
       compact: true,
       sourcemap: true,
-      globals
+      globals: {
+        vue: "Vue",
+        "element-ui": "ELEMENT"
+      }
     };
   }
 
   return output;
 };
 
-const nodePlugins = function(format) {
-  if (format === "cjs") {
-    return [];
-  }
+const nodePlugins = function() {
   return [
     require("@rollup/plugin-node-resolve").nodeResolve({
       modulesOnly: true,
@@ -62,7 +59,8 @@ const nodePlugins = function(format) {
       extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
     }),
     require("@rollup/plugin-commonjs")({
-      sourceMap: false
+      sourceMap: false,
+      extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
     }),
     require("rollup-plugin-node-builtins")(),
     require("rollup-plugin-node-globals")()
@@ -83,47 +81,8 @@ const tsPlugin = typescript({
   }
 });
 
-const baseConfig = {
-  input: "packages/index.ts",
-  external: ["vue"],
-  plugins: [
-    tsPlugin,
-    vue({
-      css: true,
-      compileTemplate: true
-    }),
-    alias({
-      resolve: [".js", ".jsx", ".ts", ".tsx", ".vue"],
-      entries: {
-        vue$: "vue/dist/vue.common.js",
-        "@": resolve("src"),
-        "@packages": resolve("packages")
-      }
-    }),
-    scss({
-      prefix: `@import "packages/theme-chalk/src/theme.scss";`,
-      output: "dist/mui.min.css",
-      processor: css =>
-        postcss([autoprefixer(), cssnano()])
-          .process(css, { from: undefined })
-          .then(result => result.css)
-    })
-  ]
-};
-
 const terserConfig = function(format) {
   const config = {
-    cjs: [
-      terser({
-        module: true,
-        compress: {
-          ecma: 2015,
-          pure_getters: true
-        },
-        safari10: true,
-        toplevel: false
-      })
-    ],
     iife: [
       terser({
         compress: true,
@@ -140,18 +99,40 @@ const terserConfig = function(format) {
 function buildConfig() {
   return [
     {
-      ...baseConfig,
+      input: "packages/index.ts",
       output: outputConfigs(format),
+      external: ["vue"],
       plugins: [
-        replace({
-          "process.env.NODE_ENV": JSON.stringify("production"),
-          ...(format === "es"
-            ? { "process.env.ES_BUILD": JSON.stringify("true") }
-            : {})
+        tsPlugin,
+        json(),
+        alias({
+          resolve: [".js", ".jsx", ".ts", ".tsx", ".vue"],
+          entries: {
+            vue$: "vue/dist/vue.common.js",
+            "@": resolve("src"),
+            "@packages": resolve("packages")
+          }
         }),
-        babel({
+        vue({
+          css: true,
+          compileTemplate: true
+        }),
+        scss({
+          prefix: `@import "packages/theme-chalk/src/theme.scss";`,
+          output: "dist/mui.min.css",
+          processor: css =>
+            postcss({
+              plugins: [autoprefixer(), cssnano()]
+            })
+              .process(css, { from: undefined })
+              .then(result => result.css)
+        }),
+        replace({
+          "process.env.NODE_ENV": JSON.stringify("production")
+        }),
+        buble({
           objectAssign: "Object.assign",
-          ...(format === "es" ? { jsx: "h" } : {})
+          jsx: "h"
         }),
         ...nodePlugins(format),
         ...terserConfig(format)
