@@ -6,6 +6,7 @@ import typescript from "rollup-plugin-typescript2";
 import replace from "@rollup/plugin-replace";
 import json from "rollup-plugin-json";
 import buble from "rollup-plugin-buble";
+import filesize from "rollup-plugin-filesize";
 import scss from "rollup-plugin-scss";
 import image from "@rollup/plugin-image";
 import postcss from "postcss";
@@ -85,6 +86,7 @@ function buildConfig() {
       output: outputConfigs(format),
       external: ["vue"],
       plugins: [
+        filesize(),
         tsPlugin,
         json(),
         alias({
@@ -95,13 +97,14 @@ function buildConfig() {
           }
         }),
         vue({
-          css: true,
-          compileTemplate: true
+          target: "browser",
+          css: false
         }),
         image(),
         scss({
           prefix: `@import "packages/theme-chalk/src/theme.scss";`,
           output: "dist/mui.min.css",
+          includePaths: ["../node_modules/"],
           processor: css =>
             postcss({
               plugins: [autoprefixer(), cssnano()]
@@ -118,7 +121,6 @@ function buildConfig() {
         }),
 
         require("@rollup/plugin-node-resolve").nodeResolve({
-          modulesOnly: true,
           browser: true,
           preferBuiltins: true,
           moduleDirectories: ["../node_modules"],
@@ -126,6 +128,27 @@ function buildConfig() {
         }),
         require("@rollup/plugin-commonjs")({
           include: /node_modules/,
+          namedExports: {
+            "node_modules/element-ui/lib/element-ui.common.js": [
+              "Dialog",
+              "Button",
+              // Icon
+              "Row",
+              "Col",
+              "Select",
+              "Option",
+              "Table",
+              "TableColumn",
+              "Input",
+              "Tree",
+              "Loading",
+              "Tag",
+              "Dropdown",
+              "DropdownMenu",
+              "DropdownItem",
+              "Tooltip"
+            ]
+          },
           extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
         }),
         require("rollup-plugin-node-builtins")(),
