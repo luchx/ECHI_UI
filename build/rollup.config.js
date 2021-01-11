@@ -7,6 +7,7 @@ import replace from "@rollup/plugin-replace";
 import json from "rollup-plugin-json";
 import buble from "rollup-plugin-buble";
 import scss from "rollup-plugin-scss";
+import image from "@rollup/plugin-image";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
@@ -97,6 +98,7 @@ function buildConfig() {
           css: true,
           compileTemplate: true
         }),
+        image(),
         scss({
           prefix: `@import "packages/theme-chalk/src/theme.scss";`,
           output: "dist/mui.min.css",
