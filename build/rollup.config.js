@@ -36,7 +36,7 @@ const outputConfigs = function(format) {
   if (format !== "es") {
     output = {
       ...output,
-      name: "mui",
+      name: "MUI",
       exports: "default",
       globals: {
         vue: "Vue",
