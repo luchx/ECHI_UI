@@ -37,9 +37,7 @@ const outputConfigs = function(format) {
     output = {
       ...output,
       name: "mui",
-      exports: "named",
-      compact: true,
-      sourcemap: true,
+      exports: "default",
       globals: {
         vue: "Vue",
         "element-ui": "ELEMENT"
@@ -48,23 +46,6 @@ const outputConfigs = function(format) {
   }
 
   return output;
-};
-
-const nodePlugins = function() {
-  return [
-    require("@rollup/plugin-node-resolve").nodeResolve({
-      modulesOnly: true,
-      browser: true,
-      preferBuiltins: true,
-      extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
-    }),
-    require("@rollup/plugin-commonjs")({
-      sourceMap: false,
-      extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
-    }),
-    require("rollup-plugin-node-builtins")(),
-    require("rollup-plugin-node-globals")()
-  ];
 };
 
 const tsPlugin = typescript({
@@ -108,7 +89,6 @@ function buildConfig() {
         alias({
           resolve: [".js", ".jsx", ".ts", ".tsx", ".vue"],
           entries: {
-            vue$: "vue/dist/vue.common.js",
             "@": resolve("src"),
             "@packages": resolve("packages")
           }
@@ -134,7 +114,20 @@ function buildConfig() {
           objectAssign: "Object.assign",
           jsx: "h"
         }),
-        ...nodePlugins(format),
+
+        require("@rollup/plugin-node-resolve").nodeResolve({
+          modulesOnly: true,
+          browser: true,
+          preferBuiltins: true,
+          moduleDirectories: ["../node_modules"],
+          extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
+        }),
+        require("@rollup/plugin-commonjs")({
+          include: /node_modules/,
+          extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
+        }),
+        require("rollup-plugin-node-builtins")(),
+        require("rollup-plugin-node-globals")(),
         ...terserConfig(format)
       ]
     }
