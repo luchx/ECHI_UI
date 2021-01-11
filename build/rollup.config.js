@@ -97,8 +97,8 @@ function buildConfig() {
           }
         }),
         vue({
-          target: "browser",
-          css: false
+          css: false,
+          compileTemplate: true
         }),
         image(),
         scss({
