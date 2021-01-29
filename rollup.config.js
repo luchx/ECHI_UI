@@ -21,7 +21,7 @@ function resolve(dir) {
   return path.join(__dirname, `${dir}`);
 }
 
-const libDir = "lib";
+const libDir = "dist";
 const extensions = [".js", ".jsx", ".ts", ".tsx", ".vue"];
 const format = !argv.format || argv.format;
 const suffix = {
