@@ -1,11 +1,2 @@
 /* 全局样式 */
 @import "./src/global.scss";
-
-/* 基础组件 */
-@import "./src/dialog.scss";
-@import "./src/multi-tag.scss";
-
-/* 业务组件 */
-@import "./src/business/select-room.scss";
-@import "./src/business/select-users.scss";
-@import "./src/business/problem-table.scss";

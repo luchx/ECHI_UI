@@ -4,14 +4,14 @@ export default {
   inheritAttrs: false,
   props: {
     // 是否只在溢出时显示 tip
-    showOverflowTooltip: {
+    ellipsis: {
       type: Boolean,
       default: true
     }
   },
   data() {
     return {
-      ellipsis: false
+      isEllipsis: false
     };
   },
   mounted() {
@@ -24,10 +24,10 @@ export default {
   methods: {
     calcTips() {
       const el = this.$el;
-      const clientWidth = el.clientWidth;
+      const clientWidth = el?.clientWidth;
       const scrollWidth = el.scrollWidth;
-      const ellipsis = scrollWidth > clientWidth;
-      this.ellipsis = ellipsis;
+      const isEllipsis = scrollWidth > clientWidth;
+      this.isEllipsis = isEllipsis;
     }
   },
   render() {
@@ -37,12 +37,12 @@ export default {
         ...$attrs
       }
     };
-    if (!$props.showOverflowTooltip) {
+    if (!$props.ellipsis) {
       return <el-tooltip {...tooltipProps}>{$slots.default}</el-tooltip>;
     }
 
     return (
-      <el-tooltip {...tooltipProps} disabled={!$data.ellipsis}>
+      <el-tooltip {...tooltipProps} disabled={!$data.isEllipsis}>
         <span class="mui-textEllipsis">{$slots.default}</span>
       </el-tooltip>
     );

@@ -1,0 +1,10 @@
+{
+  "name": "@mui/empty",
+  "version": "1.0.0",
+  "description": "空状态时的展示占位图",
+  "main": "dist/empty.common.js",
+  "module": "dist/empty.umd.js",
+  "unpkg": "dist/empty.umd.min.js",
+  "author": "Echi",
+  "license": "ISC"
+}

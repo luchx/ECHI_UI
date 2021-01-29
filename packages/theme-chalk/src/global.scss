@@ -5,3 +5,35 @@
     overflow: hidden;
   }
 }
+
+/* 普通IE浏览器 样式清除 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+
+/* 火狐浏览器样式清除 */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// 修改css滚动栏的样式
+// 纵向滚动条的和横向滚动条的宽度
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+// 滚动条颜色
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #d8d8d8;
+}
+
+// 滚动栏颜色
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background: hsla(0, 0%, 98%, 0.9);
+}

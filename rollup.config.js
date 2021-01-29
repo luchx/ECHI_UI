@@ -1,37 +1,39 @@
 // rollup.config.js
 import path from "path";
+import pkg from "./package.json";
 import vue from "rollup-plugin-vue";
 import alias from "@rollup/plugin-alias";
 import typescript from "rollup-plugin-typescript2";
 import replace from "@rollup/plugin-replace";
 import json from "rollup-plugin-json";
-import buble from "rollup-plugin-buble";
-import filesize from "rollup-plugin-filesize";
+import babel from "rollup-plugin-babel";
 import scss from "rollup-plugin-scss";
 import image from "@rollup/plugin-image";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
-import cssnano from "cssnano";
+import csso from "postcss-csso";
 import { terser } from "rollup-plugin-terser";
 import minimist from "minimist";
 
 const argv = minimist(process.argv.slice(2));
 
 function resolve(dir) {
-  return path.join(__dirname, `../${dir}`);
+  return path.join(__dirname, `${dir}`);
 }
 
+const libDir = "lib";
+const extensions = [".js", ".jsx", ".ts", ".tsx", ".vue"];
 const format = !argv.format || argv.format;
+const suffix = {
+  cjs: pkg.browser,
+  umd: pkg.main,
+  es: pkg.module,
+  iife: pkg.unpkg
+};
 
 const outputConfigs = function(format) {
-  const suffix = {
-    cjs: "cjs",
-    umd: "umd",
-    es: "esm",
-    iife: "unpkg.min"
-  };
   let output = {
-    file: resolve(`dist/mui.${suffix[format] || "min"}.js`),
+    file: resolve(suffix[format]),
     format
   };
 
@@ -39,7 +41,7 @@ const outputConfigs = function(format) {
     output = {
       ...output,
       name: "MUI",
-      exports: "default",
+      exports: "named",
       globals: {
         vue: "Vue",
         "element-ui": "ELEMENT"
@@ -53,15 +55,7 @@ const outputConfigs = function(format) {
 const tsPlugin = typescript({
   check: true,
   tsconfig: resolve("tsconfig.json"),
-  cacheRoot: resolve("node_modules/.mui_cache"),
-  tsconfigOverride: {
-    compilerOptions: {
-      sourceMap: true,
-      declaration: false,
-      declarationMap: false
-    },
-    exclude: ["**/__tests__", "test-dts"]
-  }
+  cacheRoot: resolve("node_modules/.mui_cache")
 });
 
 const terserConfig = function(format) {
@@ -84,16 +78,16 @@ function buildConfig() {
     {
       input: "packages/index.ts",
       output: outputConfigs(format),
-      external: ["vue"],
+      // 减少包体积，需要声明 peerDependencies 依赖引入
+      external: ["vue", "element-ui"],
       plugins: [
-        filesize(),
         tsPlugin,
         json(),
         alias({
-          resolve: [".js", ".jsx", ".ts", ".tsx", ".vue"],
+          resolve: extensions,
           entries: {
             "@": resolve("src"),
-            "@packages": resolve("packages")
+            mui: resolve("packages")
           }
         }),
         vue({
@@ -103,53 +97,28 @@ function buildConfig() {
         image(),
         scss({
           prefix: `@import "packages/theme-chalk/src/theme.scss";`,
-          output: "dist/mui.min.css",
-          includePaths: ["../node_modules/"],
+          output: `${libDir}/mui.min.css`,
+          includePaths: ["node_modules"],
           processor: css =>
-            postcss({
-              plugins: [autoprefixer(), cssnano()]
-            })
+            postcss([autoprefixer(), csso()])
               .process(css, { from: undefined })
               .then(result => result.css)
         }),
         replace({
           "process.env.NODE_ENV": JSON.stringify("production")
         }),
-        buble({
-          objectAssign: "Object.assign",
-          jsx: "h"
+        babel({
+          runtimeHelpers: true
         }),
 
         require("@rollup/plugin-node-resolve").nodeResolve({
           browser: true,
           preferBuiltins: true,
-          moduleDirectories: ["../node_modules"],
-          extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
+          extensions: extensions
         }),
         require("@rollup/plugin-commonjs")({
           include: /node_modules/,
-          namedExports: {
-            "node_modules/element-ui/lib/element-ui.common.js": [
-              "Dialog",
-              "Button",
-              // Icon
-              "Row",
-              "Col",
-              "Select",
-              "Option",
-              "Table",
-              "TableColumn",
-              "Input",
-              "Tree",
-              "Loading",
-              "Tag",
-              "Dropdown",
-              "DropdownMenu",
-              "DropdownItem",
-              "Tooltip"
-            ]
-          },
-          extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"]
+          extensions: extensions
         }),
         require("rollup-plugin-node-builtins")(),
         require("rollup-plugin-node-globals")(),

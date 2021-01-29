@@ -1,5 +1,6 @@
 import { VueConstructor } from "vue";
 import MultiTag from "./src/index.vue";
+import "./src/index.scss";
 
 export default {
   ...MultiTag,
