@@ -5,7 +5,7 @@ import vue from "rollup-plugin-vue";
 import alias from "@rollup/plugin-alias";
 import typescript from "rollup-plugin-typescript2";
 import replace from "@rollup/plugin-replace";
-import json from "rollup-plugin-json";
+import json from "@rollup/plugin-json";
 import babel from "rollup-plugin-babel";
 import scss from "rollup-plugin-scss";
 import image from "@rollup/plugin-image";
