@@ -3,14 +3,15 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
-import mui from "mui";
+
+import { Dialog } from "lcx-ui";
 
 Vue.config.productionTip = false;
 
-console.log(mui);
+console.log(Dialog);
 
 Vue.use(ElementUI);
-Vue.use(mui);
+Vue.use(Dialog);
 
 new Vue({
   router,

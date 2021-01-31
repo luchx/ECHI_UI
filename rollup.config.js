@@ -8,11 +8,7 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import replace from "@rollup/plugin-replace";
 import json from "@rollup/plugin-json";
 import babel from "@rollup/plugin-babel";
-import scss from "rollup-plugin-scss";
 import image from "@rollup/plugin-image";
-import postcss from "postcss";
-import autoprefixer from "autoprefixer";
-import csso from "postcss-csso";
 import { terser } from "rollup-plugin-terser";
 
 function resolve(dir) {
@@ -64,15 +60,6 @@ const createBaseConfig = () => {
         compileTemplate: true
       }),
       image(),
-      scss({
-        prefix: `@import "packages/theme-chalk/src/theme.scss";`,
-        output: pkg.style,
-        includePaths: ["node_modules"],
-        processor: css =>
-          postcss([autoprefixer(), csso()])
-            .process(css, { from: undefined })
-            .then(result => result.css)
-      }),
       replace({
         "process.env.NODE_ENV": JSON.stringify("production")
       }),

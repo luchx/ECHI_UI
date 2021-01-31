@@ -11,13 +11,13 @@ module.exports = {
   css: {
     // 不提取 css,直接打包到 js 文件中
     extract: false,
-    sourceMap: false,
-    loaderOptions: {
-      // 给 scss 文件注入全局变量
-      scss: {
-        prependData: `@import "~mui/theme-chalk/src/theme.scss";`
-      }
-    }
+    sourceMap: false
+    // loaderOptions: {
+    //   // 给 scss 文件注入全局变量
+    //   scss: {
+    //     prependData: `@import "~mui/theme-chalk/src/common/theme.scss";`
+    //   }
+    // }
   },
   // 扩展 webpack 配置，使 packages 加入编译
   configureWebpack: {

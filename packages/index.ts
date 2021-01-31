@@ -1,5 +1,4 @@
 import { PluginFunction, VueConstructor } from "vue";
-import "./theme-chalk/index.scss";
 
 // 基础组件
 import Dialog from "./dialog";

@@ -1,5 +1,5 @@
 "use strict";
-/* eslint-disable @typescript-eslint/no-var-requires */
+
 const { series, src, dest } = require("gulp");
 const sass = require("gulp-dart-sass");
 const autoprefixer = require("gulp-autoprefixer");
@@ -8,7 +8,12 @@ const cssmin = require("gulp-cssmin");
 function compile() {
   return src("./src/*.scss")
     .pipe(sass.sync())
-    .pipe(autoprefixer({ cascade: false }))
+    .pipe(
+      autoprefixer({
+        overrideBrowserslist: ["ie > 9", "last 2 versions"],
+        cascade: false
+      })
+    )
     .pipe(cssmin())
     .pipe(dest("./lib"));
 }
