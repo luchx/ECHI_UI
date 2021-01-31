@@ -1,17 +1,18 @@
 {
   "name": "lcx-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "author": "luchx",
   "description": "一款用于自用的学习性 UI 框架",
-  "main": "dist/mui.cjs.js",
-  "module": "dist/mui.esm.js",
-  "unpkg": "dist/mui.unpkg.min.js",
-  "jsdelivr": "dist/mui.unpkg.min.js",
-  "style": "dist/theme-chalk/index.css",
+  "main": "lib/mui.cjs.js",
+  "module": "lib/mui.esm.js",
+  "unpkg": "lib/mui.unpkg.min.js",
+  "jsdelivr": "lib/mui.unpkg.min.js",
+  "style": "lib/theme-chalk/index.css",
   "typings": "types/index.d.ts",
   "files": [
     "docs",
-    "dist",
+    "packages",
+    "lib",
     "types"
   ],
   "repository": {
@@ -21,7 +22,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "release": "npm run build:lib",
-    "build:lib": "rimraf dist & rollup -c",
+    "build:lib": "rimraf lib & rollup -c",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "vue-cli-service lint --fix --ext .js,.ts,.vue src",
     "docs:dev": "vuepress dev docs",

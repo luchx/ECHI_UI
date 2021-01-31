@@ -1,10 +1,11 @@
-import Vue, { PluginFunction, VueConstructor } from "vue";
+import { VueConstructor, PluginFunction } from "vue";
 
 interface InstallFunction extends PluginFunction<any> {
   installed?: boolean;
 }
 
-declare const Mui: { install: InstallFunction };
-export default Mui;
+export const version: string;
 
-export const MuiSample: VueConstructor<Vue>;
+export function install(vue: VueConstructor, options: InstallFunction): void;
+
+export * as Dialog from "./dialog";
