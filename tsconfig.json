@@ -31,17 +31,8 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "packages/*/src",
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
-    "packages/business/**/src",
-    "packages/business/**/src/**/*.ts",
-    "packages/business/**/src/**/*.tsx",
-    "packages/business/**/src/**/*.vue",
+    "src/*",
+    "packages/*",
   ],
   "exclude": [
     "node_modules",

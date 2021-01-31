@@ -59,6 +59,5 @@ export {
 
 export default {
   version,
-  install,
-  ...components
+  install
 };

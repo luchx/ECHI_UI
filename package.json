@@ -1,13 +1,14 @@
 {
   "name": "lcx-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "luchx",
   "description": "一款用于自用的学习性 UI 框架",
-  "main": "dist/mui.umd.js",
-  "browser": "dist/mui.cjs.js",
+  "main": "dist/mui.cjs.js",
   "module": "dist/mui.esm.js",
   "unpkg": "dist/mui.unpkg.min.js",
-  "types": "types/mui.d.ts",
+  "jsdelivr": "dist/mui.unpkg.min.js",
+  "style": "dist/theme-chalk/index.css",
+  "typings": "types/index.d.ts",
   "files": [
     "docs",
     "dist",
@@ -20,11 +21,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "release": "npm run build:lib",
-    "build:lib": "rimraf dist & npm run build:cjs & npm run build:umd & npm run build:esm & npm run build:unpkg",
-    "build:cjs": "cross-env NODE_ENV=production rollup --config rollup.config.js --format cjs",
-    "build:umd": "cross-env NODE_ENV=production rollup --config rollup.config.js --format umd",
-    "build:esm": "cross-env NODE_ENV=production rollup --config rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config rollup.config.js --format iife",
+    "build:lib": "rimraf dist & rollup -c",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "vue-cli-service lint --fix --ext .js,.ts,.vue src",
     "docs:dev": "vuepress dev docs",
@@ -40,7 +37,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.9.0",
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-babel": "^5.2.3",
@@ -51,6 +50,7 @@
     "@rollup/plugin-replace": "^2.3.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
+    "@vue/babel-plugin-jsx": "^1.0.2",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -78,6 +78,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
@@ -90,8 +91,6 @@
   },
   "peerDependencies": {
     "element-ui": "^2.14.1",
-    "postcss": "^8.2.3",
-    "rollup-plugin-vue": "5.1.9",
     "vue": "^2.6.11"
   },
   "gitHooks": {

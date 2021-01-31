@@ -1,56 +1,25 @@
 // rollup.config.js
 import path from "path";
 import pkg from "./package.json";
-import vue from "rollup-plugin-vue";
+import vuePlugin from "rollup-plugin-vue";
 import alias from "@rollup/plugin-alias";
 import typescript from "rollup-plugin-typescript2";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import replace from "@rollup/plugin-replace";
 import json from "@rollup/plugin-json";
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 import scss from "rollup-plugin-scss";
 import image from "@rollup/plugin-image";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import csso from "postcss-csso";
 import { terser } from "rollup-plugin-terser";
-import minimist from "minimist";
-
-const argv = minimist(process.argv.slice(2));
 
 function resolve(dir) {
   return path.join(__dirname, `${dir}`);
 }
 
-const libDir = "dist";
 const extensions = [".js", ".jsx", ".ts", ".tsx", ".vue"];
-const format = !argv.format || argv.format;
-const suffix = {
-  cjs: pkg.browser,
-  umd: pkg.main,
-  es: pkg.module,
-  iife: pkg.unpkg
-};
-
-const outputConfigs = function(format) {
-  let output = {
-    file: resolve(suffix[format]),
-    format
-  };
-
-  if (format !== "es") {
-    output = {
-      ...output,
-      name: "MUI",
-      exports: "named",
-      globals: {
-        vue: "Vue",
-        "element-ui": "ELEMENT"
-      }
-    };
-  }
-
-  return output;
-};
 
 const tsPlugin = typescript({
   check: process.env.NODE_ENV === "production",
@@ -58,92 +27,134 @@ const tsPlugin = typescript({
   cacheRoot: resolve("node_modules/.mui_cache")
 });
 
-const terserConfig = function(format) {
-  const config = {
-    iife: [
-      terser({
-        compress: true,
-        safari10: true,
-        ie8: true
-      })
-    ],
-    es: [
-      terser({
-        module: true,
-        compress: {
-          ecma: 2015,
-          pure_getters: true
-        }
-      })
-    ]
-  };
-
-  return config[format] || [];
+const createBanner = () => {
+  return `/*!
+  * ${pkg.name} v${pkg.version}
+  * (c) ${new Date().getFullYear()} kkb
+  * @license MIT
+  */`;
 };
 
-// Customize configs for individual targets
-function buildConfig() {
-  return [
-    {
-      input: "packages/index.ts",
-      output: outputConfigs(format),
-      // 减少包体积，需要声明 peerDependencies 依赖引入
-      external: ["vue", "element-ui"],
-      onwarn: (msg, warn) => {
-        if (!/Circular/.test(msg)) {
-          warn(msg);
+const createBaseConfig = () => {
+  return {
+    input: "packages/index.ts",
+    // 减少包体积，需要声明 peerDependencies 依赖引入
+    external: ["vue", "element-ui"],
+    onwarn: (msg, warn) => {
+      if (!/Circular/.test(msg)) {
+        warn(msg);
+      }
+    },
+    treeshake: {
+      moduleSideEffects: false
+    },
+    plugins: [
+      peerDepsExternal(),
+      json(),
+      tsPlugin,
+      alias({
+        resolve: extensions,
+        entries: {
+          "@": resolve("src"),
+          mui: resolve("packages")
         }
-      },
-      treeshake: {
-        moduleSideEffects: false
-      },
-      plugins: [
-        json(),
-        tsPlugin,
-        alias({
-          resolve: extensions,
-          entries: {
-            "@": resolve("src"),
-            mui: resolve("packages")
-          }
-        }),
-        vue({
-          css: false,
-          compileTemplate: true
-        }),
-        image(),
-        scss({
-          prefix: `@import "packages/theme-chalk/src/theme.scss";`,
-          output: `${libDir}/mui.min.css`,
-          includePaths: ["node_modules"],
-          processor: css =>
-            postcss([autoprefixer(), csso()])
-              .process(css, { from: undefined })
-              .then(result => result.css)
-        }),
-        replace({
-          "process.env.NODE_ENV": JSON.stringify("production")
-        }),
-        babel({
-          runtimeHelpers: true
-        }),
-
-        require("@rollup/plugin-node-resolve").nodeResolve({
-          browser: true,
-          preferBuiltins: true,
-          extensions: extensions
-        }),
-        require("@rollup/plugin-commonjs")({
-          include: /node_modules/,
-          extensions: extensions
-        }),
-        require("rollup-plugin-node-builtins")(),
-        require("rollup-plugin-node-globals")(),
-        ...terserConfig(format)
-      ]
+      }),
+      vuePlugin({
+        css: false,
+        compileTemplate: true
+      }),
+      image(),
+      scss({
+        prefix: `@import "packages/theme-chalk/src/theme.scss";`,
+        output: pkg.style,
+        includePaths: ["node_modules"],
+        processor: css =>
+          postcss([autoprefixer(), csso()])
+            .process(css, { from: undefined })
+            .then(result => result.css)
+      }),
+      replace({
+        "process.env.NODE_ENV": JSON.stringify("production")
+      }),
+      babel({
+        exclude: "node_modules/**",
+        extensions: extensions,
+        babelHelpers: "runtime"
+      }),
+      require("@rollup/plugin-node-resolve").nodeResolve({
+        browser: true,
+        preferBuiltins: true,
+        extensions: extensions
+      }),
+      require("@rollup/plugin-commonjs")({
+        include: /node_modules/,
+        extensions: extensions
+      }),
+      require("rollup-plugin-node-builtins")(),
+      require("rollup-plugin-node-globals")()
+    ],
+    output: {
+      sourcemap: false,
+      banner: createBanner(),
+      externalLiveBindings: false,
+      globals: {
+        vue: "Vue",
+        "element-ui": "ELEMENT"
+      }
     }
-  ];
+  };
+};
+
+function mergeConfig(baseConfig, configB) {
+  const config = Object.assign({}, baseConfig);
+  // plugin
+  if (configB.plugins) {
+    baseConfig.plugins.push(...configB.plugins);
+  }
+
+  // output
+  config.output = Object.assign({}, baseConfig.output, configB.output);
+
+  return config;
+}
+
+// es-bundle
+const esBundleConfig = {
+  output: {
+    file: pkg.module,
+    format: "es"
+  }
+};
+
+// cjs
+const cjsConfig = {
+  plugins: [terser()],
+  output: {
+    file: pkg.main,
+    format: "cjs",
+    exports: "named",
+    name: "MUI"
+  }
+};
+
+// global
+const globalConfig = {
+  plugins: [terser()],
+  output: {
+    file: pkg.unpkg,
+    format: "iife",
+    exports: "named",
+    name: "MUI"
+  }
+};
+
+const prodFormatConfigs = [esBundleConfig, cjsConfig, globalConfig];
+
+function createPackageConfigs() {
+  return prodFormatConfigs.map(formatConfig => {
+    return mergeConfig(createBaseConfig(), formatConfig);
+  });
 }
 
 // Export config
-export default buildConfig();
+export default createPackageConfigs();
