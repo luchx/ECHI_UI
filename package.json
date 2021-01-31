@@ -1,6 +1,8 @@
 {
-  "name": "@echi/ui",
-  "version": "0.0.1",
+  "name": "lcx-ui",
+  "version": "1.0.0",
+  "author": "luchx",
+  "description": "一款用于自用的学习性 UI 框架",
   "main": "dist/mui.umd.js",
   "browser": "dist/mui.cjs.js",
   "module": "dist/mui.esm.js",
@@ -11,9 +13,12 @@
     "dist",
     "types"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luchx/ECHI_UI.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "release": "npm run build:lib",
     "build:lib": "rimraf dist & npm run build:cjs & npm run build:umd & npm run build:esm & npm run build:unpkg",
     "build:cjs": "cross-env NODE_ENV=production rollup --config rollup.config.js --format cjs",

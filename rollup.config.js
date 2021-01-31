@@ -53,7 +53,7 @@ const outputConfigs = function(format) {
 };
 
 const tsPlugin = typescript({
-  check: true,
+  check: process.env.NODE_ENV === "production",
   tsconfig: resolve("tsconfig.json"),
   cacheRoot: resolve("node_modules/.mui_cache")
 });
@@ -65,6 +65,15 @@ const terserConfig = function(format) {
         compress: true,
         safari10: true,
         ie8: true
+      })
+    ],
+    es: [
+      terser({
+        module: true,
+        compress: {
+          ecma: 2015,
+          pure_getters: true
+        }
       })
     ]
   };
@@ -80,9 +89,17 @@ function buildConfig() {
       output: outputConfigs(format),
       // 减少包体积，需要声明 peerDependencies 依赖引入
       external: ["vue", "element-ui"],
+      onwarn: (msg, warn) => {
+        if (!/Circular/.test(msg)) {
+          warn(msg);
+        }
+      },
+      treeshake: {
+        moduleSideEffects: false
+      },
       plugins: [
-        tsPlugin,
         json(),
+        tsPlugin,
         alias({
           resolve: extensions,
           entries: {
