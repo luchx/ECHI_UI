@@ -1,7 +1,6 @@
 {
   "name": "lcx-ui",
-  "version": "1.0.4",
-  "author": "luchx",
+  "version": "1.0.5",
   "description": "一款用于自用的学习性 UI 框架",
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
@@ -15,6 +14,7 @@
     "lib",
     "types"
   ],
+  "author": "luchx1993@gmail.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luchx/ECHI_UI.git"
@@ -22,7 +22,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "release": "npm run build:lib",
-    "build:lib": "rimraf lib & rollup -c",
+    "build:lib": "rollup -c",
+    "build:theme": "rimraf packages/theme-chalk/lib && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && rimraf packages/theme-chalk/lib",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "vue-cli-service lint --fix --ext .js,.ts,.vue src",
     "docs:dev": "vuepress dev docs",
@@ -63,6 +64,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
+    "gulp": "^4.0.2",
     "lint-staged": "^9.5.0",
     "minimist": "^1.2.5",
     "node-sass": "^4.12.0",
@@ -72,6 +74,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.7.3",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
