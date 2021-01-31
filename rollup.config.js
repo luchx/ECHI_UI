@@ -30,7 +30,7 @@ const tsPlugin = typescript({
 const createBanner = () => {
   return `/*!
   * ${pkg.name} v${pkg.version}
-  * (c) ${new Date().getFullYear()} kkb
+  * (c) ${new Date().getFullYear()} luchx
   * @license MIT
   */`;
 };
