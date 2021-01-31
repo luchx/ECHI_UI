@@ -32,7 +32,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
-    "lcx-ui": "^1.0.5",
+    "lcx-ui": "^1.0.6",
     "lodash-es": "^4.17.20",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
