@@ -4,14 +4,14 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 
-import { Dialog } from "lcx-ui";
+import mui from "lcx-ui";
 
 Vue.config.productionTip = false;
 
-console.log(Dialog);
+console.log(mui);
 
 Vue.use(ElementUI);
-Vue.use(Dialog);
+Vue.use(mui);
 
 new Vue({
   router,
