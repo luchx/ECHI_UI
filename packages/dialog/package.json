@@ -1,0 +1,6 @@
+{
+  "name": "@lcx/dialog",
+  "version": "1.0.6",
+  "main": "dist/index.js",
+  "license": "MIT"
+}

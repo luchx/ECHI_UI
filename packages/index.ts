@@ -3,7 +3,6 @@ import { PluginFunction, VueConstructor } from "vue";
 // 基础组件
 import Dialog from "./dialog";
 import Button from "./button";
-import MultiTag from "./multi-tag";
 import Tooltip from "./tooltip";
 import Empty from "./empty";
 
@@ -14,7 +13,6 @@ const components: Components = {
   /* 基础组件 */
   Dialog,
   Button,
-  MultiTag,
   Tooltip,
   Empty
 };
@@ -23,7 +21,16 @@ const components: Components = {
 interface InstallFunction extends PluginFunction<any> {
   installed?: boolean;
 }
-const install: InstallFunction = function(Vue: VueConstructor, opts = {}) {
+
+type InstallOptions = {
+  size?: string;
+  zIndex?: number;
+};
+
+const install: InstallFunction = function(
+  Vue: VueConstructor,
+  opts: InstallOptions = {}
+) {
   if (install.installed) return;
   install.installed = true;
 
@@ -51,7 +58,6 @@ export {
   /* 基础组件 */
   Dialog,
   Button,
-  MultiTag,
   Tooltip,
   Empty
 };

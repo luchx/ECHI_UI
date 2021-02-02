@@ -18,9 +18,16 @@ function resolve(dir) {
 const extensions = [".js", ".jsx", ".ts", ".tsx", ".vue"];
 
 const tsPlugin = typescript({
-  check: process.env.NODE_ENV === "production",
+  check: true,
   tsconfig: resolve("tsconfig.json"),
-  cacheRoot: resolve("node_modules/.mui_cache")
+  cacheRoot: resolve("node_modules/.mui_cache"),
+  tsconfigOverride: {
+    compilerOptions: {
+      declaration: true,
+      declarationMap: true
+    },
+    exclude: ["node_modules", "__tests__"]
+  }
 });
 
 const createBanner = () => {
@@ -135,7 +142,23 @@ const globalConfig = {
   }
 };
 
-const prodFormatConfigs = [esBundleConfig, cjsConfig, globalConfig];
+// globalProd
+const globalProdConfig = {
+  plugins: [terser()],
+  output: {
+    file: "lib/index.js",
+    format: "iife",
+    exports: "named",
+    name: "MUI"
+  }
+};
+
+const prodFormatConfigs = [
+  esBundleConfig,
+  cjsConfig,
+  globalConfig,
+  globalProdConfig
+];
 
 function createPackageConfigs() {
   return prodFormatConfigs.map(formatConfig => {

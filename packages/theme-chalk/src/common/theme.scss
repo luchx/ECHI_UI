@@ -1,21 +1,21 @@
 // 样式前缀
-$prefix: "mui";
+$prefix: "mui" !default;
 
 /* 全局状态样式 */
 
 /* 主题色 */
 // 背景色
-$color-bg: #f5f7fa;
+$--background-color-base: #f5f7fa !default;
 // 主色调
-$color-primary: #409eff;
+$--color-primary: #409eff !default;
 // 边框色
-$color-border: #dcdfe6;
+$--border-color-base: #dcdfe6 !default;
 
 /* 字体 */
 // 普通字体
-$font-size-normal: 14px;
+$--font-size-base: 14px !default;
 
 /* 间距 */
 // 表格复选框间距
-$table-cell-gap: 14px;
+$--table-cell-gap: 14px !default;
 

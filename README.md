@@ -15,9 +15,7 @@ npm install -g yarn
 https://classic.yarnpkg.com/zh-Hans/
 
 # 安装 
-yarn install
-# OR
-npm install
+npm run bootstrap
 
 # 启动示例项目
 npm run serve
@@ -26,10 +24,19 @@ npm run serve
 npm run docs:dev
 
 # 使用构建，打包会生成 lib 文件，将生成的 js 文件直接用 script 引入即可
+npm run release
+
+# 使用构建打包主模块
 npm run build:lib
 
+# 使用构建打包子模块，用于按需引入，需配合 babel-plugin-component 插件使用
+npm run build:esm
+
+# 使用构建打包主题
+npm run build:theme
+
 # 发布新版本
-npm run publish
+lerna publish
 ```
 
 ## 提交规范
@@ -86,6 +93,6 @@ scripts         # 脚本文件
 - [x] 引入基础插件、ui 组件库
 - [x] 实现组件库的按需加载
 - [ ] 引入请求库，封装请求拦截器
-- [ ] 模块化导出实现 - rollup
+- [x] 模块化导出实现 - rollup
 - [ ] 导出完整 sdk 包
-- [ ] 分离 css 模块，单独打包
+- [x] 分离 css 模块，单独打包

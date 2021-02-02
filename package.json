@@ -5,9 +5,10 @@
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
   "unpkg": "lib/mui.unpkg.min.js",
-  "jsdelivr": "lib/mui.unpkg.min.js",
+  "jsdelivr": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
-  "typings": "types/index.d.ts",
+  "typings": "lib/packages/index.d.ts",
+  "sideEffects": false,
   "files": [
     "docs",
     "packages",
@@ -20,10 +21,13 @@
     "url": "git+https://github.com/luchx/ECHI_UI.git"
   },
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "serve": "vue-cli-service serve",
-    "release": "npm run build:lib & npm run build:theme",
-    "build:lib": "rollup -c",
+    "release": "npm run build:lib && npm run build:theme && npm run build:esm",
+    "build:lib": "rimraf lib && rollup -c",
+    "build:esm": "node ./scripts/bincomp.js",
     "build:theme": "rimraf packages/theme-chalk/lib && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && rimraf packages/theme-chalk/lib",
+    "clear": "rimraf lib && rimraf packages/theme-chalk/lib",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "vue-cli-service lint --fix --ext .js,.ts,.vue src",
     "docs:dev": "vuepress dev docs",
@@ -32,6 +36,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
+    "lerna": "^3.22.1",
     "lcx-ui": "^1.0.6",
     "lodash-es": "^4.17.20",
     "vue": "^2.6.11",
@@ -59,6 +64,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "babel-plugin-component": "^1.1.1",
+    "chalk": "^4.1.0",
     "conventional-changelog-cli": "^2.1.1",
     "cp-cli": "^2.0.0",
     "cross-env": "^7.0.2",
@@ -69,6 +75,7 @@
     "lint-staged": "^9.5.0",
     "minimist": "^1.2.5",
     "node-sass": "^4.12.0",
+    "ora": "^5.3.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.7.3",
@@ -85,7 +92,8 @@
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.7.1"
+    "vuepress": "^1.7.1",
+    "vuepress-theme-hope": "^1.9.3"
   },
   "peerDependencies": {
     "element-ui": "^2.14.1",

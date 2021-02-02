@@ -2,10 +2,8 @@
 
 npm 安装
 
-推荐使用 npm 的方式安装，它能更好地和 webpack 打包工具配合使用。
-
 ```bash
-npm i @mui -S
+npm i lcx-ui -S
 ```
 
 ## CDN 方式
@@ -14,9 +12,9 @@ npm i @mui -S
 
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="@mui/lib/index.css">
+<link rel="stylesheet" href="path-to-module/lib/index.css">
 <!-- 引入组件库 -->
-<script src="@mui/lib/index.js"></script>
+<script src="path-to-module/lib/index.js"></script>
 ```
 
 ## Hello world
@@ -29,7 +27,7 @@ npm i @mui -S
 <head>
   <meta charset="UTF-8">
   <!-- 引入样式 -->
-  <link rel="stylesheet" href="@mui/lib/index.css">
+  <link rel="stylesheet" href="path-to-module/lib/index.css">
 </head>
 <body>
   <div id="app">
@@ -42,7 +40,7 @@ npm i @mui -S
   <!-- 先引入 Vue -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <!-- 引入组件库 -->
-  <script src="@mui/lib/index.js"></script>
+  <script src="path-to-module/lib/index.js"></script>
   <script>
     new Vue({
       el: '#app',
@@ -54,4 +52,4 @@ npm i @mui -S
 </html>
 ```
 
-如果是通过 npm 安装，并希望配合 webpack 使用，请阅读下一节：快速上手。
+如果是通过 npm 安装，并希望配合 webpack 使用，请阅读下一节：[快速上手](/guide/quickstart)。
