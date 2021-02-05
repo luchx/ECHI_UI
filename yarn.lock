@@ -9708,14 +9708,15 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-lcx-ui@^1.0.6, lcx-ui@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.0.8.tgz#366219a699f6c3130ab4a0366e75757fef5f5b08"
-  integrity sha512-QOZkJJ8EEW8kO/RQQpktb5njsZC7qkfK+2MH5pc1QmAXmN65WYv62H9XsBf9oRpoiR0ew10qUCJdA7Zv4kALzA==
+lcx-ui@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.0.9.tgz#821039600b200412075d0abdebf848daf82f5ad7"
+  integrity sha512-qtckNdsuDEuinUFjFV3O6b03vmdmt7+qlQuIo4+sraBUXG0xsEXBF359SBb4i7Zpdvi3J7ei8hkv66s5LxB5Sw==
   dependencies:
     core-js "^3.6.5"
     element-ui "^2.14.1"
-    lcx-ui "^1.0.6"
+    lcx-ui "^1.0.9"
+    lerna "^3.22.1"
     lodash-es "^4.17.20"
     vue "^2.6.11"
     vue-router "^3.2.0"
