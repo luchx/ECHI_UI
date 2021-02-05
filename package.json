@@ -5,7 +5,6 @@
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
   "unpkg": "lib/mui.unpkg.min.js",
-  "jsdelivr": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "typings": "lib/packages/index.d.ts",
   "sideEffects": false,
