@@ -1,6 +1,6 @@
 {
   "name": "lcx-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "一款用于自用的学习性 UI 框架",
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
