@@ -6,12 +6,13 @@ import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
-import mui from "lcx-ui";
+import { Button, Dialog } from "lcx-ui";
 
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
-Vue.use(mui);
+Vue.use(Button);
+Vue.use(Dialog);
 
 new Vue({
   router,

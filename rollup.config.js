@@ -148,6 +148,10 @@ const globalConfig = {
 };
 
 // globalProd
+/**
+ * 在配置按需引入的条件下会查找 lib/index.js 文件，防止找不到而产生的错误
+ * import mui from "lcx-ui"
+ */
 const globalProdConfig = {
   plugins: [terser()],
   output: {
