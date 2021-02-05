@@ -1,6 +1,6 @@
 {
   "name": "@lcx/empty",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "license": "MIT"
 }
