@@ -30,6 +30,21 @@ const tsPlugin = typescript({
   }
 });
 
+// 支持 node 模块化引入
+const nodePlugins = [
+  require("@rollup/plugin-node-resolve").nodeResolve({
+    browser: true,
+    preferBuiltins: true,
+    extensions: extensions
+  }),
+  require("@rollup/plugin-commonjs")({
+    include: /node_modules/,
+    extensions: extensions
+  }),
+  require("rollup-plugin-node-builtins")(),
+  require("rollup-plugin-node-globals")()
+];
+
 const createBanner = () => {
   return `/*!
   * ${pkg.name} v${pkg.version}
@@ -75,17 +90,7 @@ const createBaseConfig = () => {
         extensions: extensions,
         babelHelpers: "runtime"
       }),
-      require("@rollup/plugin-node-resolve").nodeResolve({
-        browser: true,
-        preferBuiltins: true,
-        extensions: extensions
-      }),
-      require("@rollup/plugin-commonjs")({
-        include: /node_modules/,
-        extensions: extensions
-      }),
-      require("rollup-plugin-node-builtins")(),
-      require("rollup-plugin-node-globals")()
+      ...nodePlugins
     ],
     output: {
       sourcemap: false,

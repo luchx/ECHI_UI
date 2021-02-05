@@ -4,14 +4,14 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 
-import mui from "lcx-ui";
+import { Button } from "lcx-ui";
 
 Vue.config.productionTip = false;
 
-console.log(mui);
+console.log(Button);
 
 Vue.use(ElementUI);
-Vue.use(mui);
+Vue.use(Button);
 
 new Vue({
   router,

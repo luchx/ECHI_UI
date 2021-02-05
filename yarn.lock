@@ -2179,11 +2179,6 @@
     "@octokit/openapi-types" "^3.4.1"
     "@types/node" ">= 8"
 
-"@popperjs/core@^2.4.4":
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
-  integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
-
 "@rollup/plugin-alias@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-2.2.0.tgz#3ac52ece8b39583249884adb90fb316484389fe5"
@@ -3977,11 +3972,6 @@ async-settle@^1.0.0:
   integrity sha1-HQqRS7Aldb7IqPOnTlCA9yssDGs=
   dependencies:
     async-done "^1.2.2"
-
-async-validator@^3.4.0:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
-  integrity sha512-DDmKA7sdSAJtTVeNZHrnr2yojfFaoeW8MfQN8CeuXg8DDQHTqKk9Fdv38dSvnesHoO8MUwMI2HphOeSyIF+wmQ==
 
 async-validator@~1.8.1:
   version "1.8.5"
@@ -6052,7 +6042,7 @@ dateformat@^3.0.0:
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
-dayjs@1.x, dayjs@^1.10.3, dayjs@^1.10.4:
+dayjs@^1.10.3, dayjs@^1.10.4:
   version "1.10.4"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
   integrity sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw==
@@ -6540,19 +6530,6 @@ element-closest@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-3.0.2.tgz#3814a69a84f30e48e63eaf57341f4dbf4227d2aa"
   integrity sha512-JxKQiJKX0Zr5Q2/bCaTx8P+UbfyMET1OQd61qu5xQFeWr1km3fGaxelSJtnfT27XQ5Uoztn2yIyeamAc/VX13g==
-
-element-plus@^1.0.2-beta.31:
-  version "1.0.2-beta.31"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.0.2-beta.31.tgz#61a96111d9e9dc9d1ea511e213946db681471321"
-  integrity sha512-ujM/vLqh3LViUbWcACpmQb60FT4o/nE1nRmPTeMcVhcgML1+BA51woPG5FOmAF8AWFB1m73VGzfex3hCoC6vJA==
-  dependencies:
-    "@popperjs/core" "^2.4.4"
-    async-validator "^3.4.0"
-    dayjs "1.x"
-    lodash "^4.17.20"
-    mitt "^2.1.0"
-    normalize-wheel "^1.0.1"
-    resize-observer-polyfill "^1.5.1"
 
 element-ui@^2.14.1:
   version "2.14.1"
@@ -9731,7 +9708,7 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-lcx-ui@^1.0.6:
+lcx-ui@^1.0.6, lcx-ui@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.0.8.tgz#366219a699f6c3130ab4a0366e75757fef5f5b08"
   integrity sha512-QOZkJJ8EEW8kO/RQQpktb5njsZC7qkfK+2MH5pc1QmAXmN65WYv62H9XsBf9oRpoiR0ew10qUCJdA7Zv4kALzA==
@@ -10882,11 +10859,6 @@ mississippi@^3.0.0:
     pumpify "^1.3.3"
     stream-each "^1.1.0"
     through2 "^2.0.0"
-
-mitt@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
-  integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
 
 mixin-deep@^1.2.0:
   version "1.3.2"
@@ -13512,7 +13484,7 @@ requires-port@^1.0.0:
   resolved "https://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-observer-polyfill@^1.5.0, resize-observer-polyfill@^1.5.1:
+resize-observer-polyfill@^1.5.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==

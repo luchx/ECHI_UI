@@ -1,5 +1,7 @@
 <template>
-  <div>asdsad</div>
+  <div>
+    <m-button>点击</m-button>
+  </div>
 </template>
 
 <script>
