@@ -1,6 +1,6 @@
 {
   "name": "lcx-theme-chalk",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "lcx-ui component chalk theme.",
   "main": "lib/index.css",
   "style": "lib/index.css",
