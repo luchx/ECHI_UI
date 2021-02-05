@@ -4,7 +4,7 @@ module.exports = config({
   base: "/",
   port: 7001,
   title: "前端 UI 库",
-  description: "移动验房 UI 组件库文档",
+  description: "基于 element-ui 二次封装的 UI 组件库~ ✨",
   head: [
     // 引入 vue 代码支持
     ["script", { src: "https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js" }],
