@@ -1,6 +1,6 @@
 {
   "name": "lcx-ui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "一款用于自用的学习性 UI 框架",
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
@@ -37,7 +37,7 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
     "lerna": "^3.22.1",
-    "lcx-ui": "^1.0.11",
+    "lcx-ui": "^1.0.12",
     "lodash-es": "^4.17.20",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

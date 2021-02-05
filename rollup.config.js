@@ -147,7 +147,23 @@ const globalConfig = {
   }
 };
 
-const prodFormatConfigs = [esBundleConfig, cjsConfig, globalConfig];
+// globalProd
+const globalProdConfig = {
+  plugins: [terser()],
+  output: {
+    file: "lib/index.js",
+    format: "umd",
+    exports: "named",
+    name: "MUI"
+  }
+};
+
+const prodFormatConfigs = [
+  esBundleConfig,
+  cjsConfig,
+  globalConfig,
+  globalProdConfig
+];
 
 function createPackageConfigs() {
   return prodFormatConfigs.map(formatConfig => {
