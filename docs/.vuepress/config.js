@@ -19,8 +19,8 @@ module.exports = config({
         jsfiddle: false,
         codepen: true,
         vue: "//unpkg.com/vue/dist/vue.js",
-        jsLib: ["//unpkg.com/element-ui@2.15.0/lib/index.js", `//cdn.jsdelivr.net/npm/lcx-ui@1.0.13/lib/index.js`],
-        cssLib: ["//unpkg.com/element-ui@2.15.0/lib/theme-chalk/index.css", "//cdn.jsdelivr.net/npm/lcx-ui@1.0.13/lib/theme-chalk/index.css",]
+        jsLib: ["//unpkg.com/element-ui@2.15.0/lib/index.js", `//cdn.jsdelivr.net/npm/lcx-ui@1.0.14/lib/index.js`],
+        cssLib: ["//unpkg.com/element-ui@2.15.0/lib/theme-chalk/index.css", "//cdn.jsdelivr.net/npm/lcx-ui@1.0.14/lib/theme-chalk/index.css",]
       }
     },
     themeColor: {
