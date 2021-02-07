@@ -1,6 +1,6 @@
 {
   "name": "lcx-ui",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "一款用于自用的学习性 UI 框架",
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
@@ -24,20 +24,19 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --report",
     "release": "npm run build:lib && npm run build:theme && npm run build:esm",
-    "build:lib": "rimraf lib && rollup -c",
+    "build:lib": "rimraf lib && rollup -c -w",
     "build:esm": "node ./scripts/bincomp.js",
     "build:theme": "rimraf packages/theme-chalk/lib && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && rimraf packages/theme-chalk/lib",
     "clear": "rimraf lib && rimraf packages/theme-chalk/lib",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "vue-cli-service lint --fix --ext .js,.ts,.vue src",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "element-ui": "^2.14.1",
     "lerna": "^3.22.1",
-    "lcx-ui": "^1.0.12",
+    "lcx-ui": "^1.0.13",
     "lodash-es": "^4.17.20",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

@@ -1,0 +1,13 @@
+/* 改变主题色变量 */
+$--color-primary: #1f93ff !default;
+/// 成功
+$--color-success: #3db643 !default;
+/// 紧急
+$--color-warning: #ffbe1b !default;
+/// 非常紧急
+$--color-danger: #ff5d5d !default;
+/// 正常状态
+$--color-info: #999999 !default;
+
+/* 改变 icon 字体路径变量，必需 */
+@import "~../../../../../../packages/theme-chalk/src/index";

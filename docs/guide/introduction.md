@@ -12,9 +12,9 @@ npm i lcx-ui -S
 
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="path-to-module/lib/index.css">
+<link rel="stylesheet" href="lcx-ui/lib/index.css">
 <!-- 引入组件库 -->
-<script src="path-to-module/lib/index.js"></script>
+<script src="lcx-ui/lib/index.js"></script>
 ```
 
 ## Hello world
@@ -27,7 +27,7 @@ npm i lcx-ui -S
 <head>
   <meta charset="UTF-8">
   <!-- 引入样式 -->
-  <link rel="stylesheet" href="path-to-module/lib/index.css">
+  <link rel="stylesheet" href="lcx-ui/lib/index.css">
 </head>
 <body>
   <div id="app">
@@ -40,7 +40,7 @@ npm i lcx-ui -S
   <!-- 先引入 Vue -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <!-- 引入组件库 -->
-  <script src="path-to-module/lib/index.js"></script>
+  <script src="lcx-ui/lib/index.js"></script>
   <script>
     new Vue({
       el: '#app',

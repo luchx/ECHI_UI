@@ -1,21 +1,36 @@
+/* mui Chalk Variables */
+
 // 样式前缀
 $prefix: "mui" !default;
 
-/* 全局状态样式 */
+/* 全局状态样式
+-------------------------- */
 
-/* 主题色 */
-// 背景色
+/* 主题色 
+-------------------------- */
+/* 改变主题色变量 */
+$--color-primary: #1f93ff !default;
+/// 成功
+$--color-success: #3db643 !default;
+/// 紧急
+$--color-warning: #ffbe1b !default;
+/// 非常紧急
+$--color-danger: #ff5d5d !default;
+/// 正常状态
+$--color-info: #999999 !default;
+
+/// 背景色
 $--background-color-base: #f5f7fa !default;
-// 主色调
-$--color-primary: #409eff !default;
-// 边框色
+/// 边框色
 $--border-color-base: #dcdfe6 !default;
 
-/* 字体 */
-// 普通字体
+/* 字体 
+---------------------------*/
+/// 普通字体
 $--font-size-base: 14px !default;
 
-/* 间距 */
-// 表格复选框间距
+/* 间距 
+---------------------------*/
+/// 表格复选框间距
 $--table-cell-gap: 14px !default;
 
