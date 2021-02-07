@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "element-ui": "^2.14.1",
+    "element-ui": "^2.15.0",
     "lcx-ui": "^1.0.14",
     "lodash-es": "^4.17.20",
     "vue": "^2.6.11",
@@ -91,8 +91,8 @@
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.7.1",
-    "vuepress-theme-hope": "^1.9.3"
+    "vuepress": "^1.8.0",
+    "vuepress-theme-hope": "^1.9.5"
   },
   "peerDependencies": {
     "element-ui": "^2.14.1",
