@@ -1,5 +1,6 @@
 {
   "name": "lcx-ui",
+  "private": true,
   "version": "1.0.14",
   "description": "一款用于自用的学习性 UI 框架",
   "main": "lib/mui.cjs.js",
@@ -8,6 +9,9 @@
   "style": "lib/theme-chalk/index.css",
   "typings": "lib/packages/index.d.ts",
   "sideEffects": false,
+  "workspaces": [
+    "packages/*"
+  ],
   "files": [
     "docs",
     "packages",
@@ -32,7 +36,7 @@
     "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.3",
     "element-ui": "^2.14.1",
     "lcx-ui": "^1.0.14",
     "lodash-es": "^4.17.20",
