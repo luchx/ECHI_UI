@@ -7,8 +7,8 @@ import typescript from "rollup-plugin-typescript2";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import replace from "@rollup/plugin-replace";
 import json from "@rollup/plugin-json";
-import babel from "@rollup/plugin-babel";
 import image from "@rollup/plugin-image";
+import { babel } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 
 function resolve(dir) {
