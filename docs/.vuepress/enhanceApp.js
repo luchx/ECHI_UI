@@ -20,7 +20,6 @@ if (localKey) {
 }
 
 export default ({ Vue, options, router }) => {
-  Vue.use(ElementUI);
   Vue.use(mui);
 
   // 选择需要观察变动的节点
