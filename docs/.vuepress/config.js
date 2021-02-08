@@ -6,8 +6,11 @@ module.exports = config({
   title: "前端 UI 库",
   description: "基于 element-ui 二次封装的 UI 组件库~ ✨",
   head: [
+    ["link", { type: "text/css", src: "//unpkg.com/element-ui@2.15.0/lib/theme-chalk/index.css" }],
+
     // 引入 vue 代码支持
     ["script", { type: "text/javascript", src: "/plugin/vue.min.js" }],
+    ["script", { type: "text/javascript", src: "//unpkg.com/element-ui@2.15.0/lib/index.js" }],
   ],
   themeConfig: {
     hostname: "https://github.com/luchx/ECHI_UI.git",

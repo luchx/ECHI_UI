@@ -1,4 +1,3 @@
-import ElementUI from "element-ui";
 import "./public/styles/theme.scss";
 
 import mui from "../../lib/index";
