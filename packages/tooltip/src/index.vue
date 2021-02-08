@@ -24,7 +24,7 @@ export default {
   methods: {
     calcTips() {
       const el = this.$el;
-      const clientWidth = el?.clientWidth;
+      const clientWidth = el.clientWidth;
       const scrollWidth = el.scrollWidth;
       const isEllipsis = scrollWidth > clientWidth;
       this.isEllipsis = isEllipsis;
@@ -37,12 +37,19 @@ export default {
         ...$attrs
       }
     };
+
     if (!$props.ellipsis) {
-      return <el-tooltip {...tooltipProps}>{$slots.default}</el-tooltip>;
+      return (
+        <el-tooltip {...tooltipProps}>
+          <template slot="content">{$slots.content}</template>
+          {$slots.default}
+        </el-tooltip>
+      );
     }
 
     return (
       <el-tooltip {...tooltipProps} disabled={!$data.isEllipsis}>
+        <template slot="content">{$slots.content}</template>
         <span class="mui-textEllipsis">{$slots.default}</span>
       </el-tooltip>
     );
