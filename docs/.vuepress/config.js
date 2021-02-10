@@ -59,6 +59,16 @@ module.exports = config({
         collapsable: false,
         children: [
           {
+            title: "Colors 色彩",
+            path: "/ui/colors",
+            collapsable: false
+          },
+          {
+            title: "Icon 图标",
+            path: "/ui/icons",
+            collapsable: false
+          },
+          {
             title: "Button 按钮",
             path: "/ui/button",
             collapsable: false
