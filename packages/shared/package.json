@@ -1,0 +1,6 @@
+{
+  "name": "@lcx/shared",
+  "version": "1.0.14",
+  "main": "dist/index.js",
+  "license": "MIT"
+}
