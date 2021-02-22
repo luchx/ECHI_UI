@@ -1,7 +1,7 @@
 {
   "name": "lcx-ui",
   "private": true,
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "一款用于自用的学习性 UI 框架",
   "main": "lib/mui.cjs.js",
   "module": "lib/mui.esm.js",
@@ -39,7 +39,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-ui": "^2.15.0",
-    "lcx-ui": "^1.0.15",
+    "lcx-ui": "^1.0.16",
     "lodash-es": "^4.17.20",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

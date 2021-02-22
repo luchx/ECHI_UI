@@ -4496,11 +4496,6 @@ async-settle@^1.0.0:
   dependencies:
     async-done "^1.2.2"
 
-async-validator@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
-  integrity sha512-DDmKA7sdSAJtTVeNZHrnr2yojfFaoeW8MfQN8CeuXg8DDQHTqKk9Fdv38dSvnesHoO8MUwMI2HphOeSyIF+wmQ==
-
 async-validator@~1.8.1:
   version "1.8.5"
   resolved "https://registry.npm.taobao.org/async-validator/download/async-validator-1.8.5.tgz?cache=0&sync_timestamp=1605749896979&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fasync-validator%2Fdownload%2Fasync-validator-1.8.5.tgz#dc3e08ec1fd0dddb67e60842f02c0cd1cec6d7f0"
@@ -7328,18 +7323,6 @@ element-closest@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-3.0.2.tgz#3814a69a84f30e48e63eaf57341f4dbf4227d2aa"
   integrity sha512-JxKQiJKX0Zr5Q2/bCaTx8P+UbfyMET1OQd61qu5xQFeWr1km3fGaxelSJtnfT27XQ5Uoztn2yIyeamAc/VX13g==
-
-element-ui@^2.14.1:
-  version "2.14.1"
-  resolved "https://registry.npm.taobao.org/element-ui/download/element-ui-2.14.1.tgz#8b5745c7366c1c1a603bb6c021286ea7187e2aa2"
-  integrity sha1-i1dFxzZsHBpgO7bAIShupxh+KqI=
-  dependencies:
-    async-validator "~1.8.1"
-    babel-helper-vue-jsx-merge-props "^2.0.0"
-    deepmerge "^1.2.0"
-    normalize-wheel "^1.0.1"
-    resize-observer-polyfill "^1.5.0"
-    throttle-debounce "^1.0.1"
 
 element-ui@^2.15.0:
   version "2.15.0"
@@ -11250,15 +11233,14 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-lcx-ui@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.0.14.tgz#00d50bda68dbb68e232dc5cc0a0479b44ce2fb79"
-  integrity sha512-APNicXyQzy6PjeUC1IvnY70DrmqezPjCQ5tP6ZzLlr63PueEpT36JaGHz3sY9zM8djrUJ4rbto9faLJsi2Jj8Q==
+lcx-ui@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.0.16.tgz#1ad819913d532b37934a00322d4602385614b0b6"
+  integrity sha512-kGGjx4gDBYNLxSuqKuiSO7f63gns3pLh4GrXxGnQk6CB1zSXQnb4bJNupxKgUvIxEZb+bswiRMNWUcmn2IraWw==
   dependencies:
-    core-js "^3.6.5"
-    element-ui "^2.14.1"
-    lcx-ui "^1.0.14"
-    lerna "^3.22.1"
+    core-js "^3.8.3"
+    element-ui "^2.15.0"
+    lcx-ui "^1.0.16"
     lodash-es "^4.17.20"
     vue "^2.6.11"
     vue-router "^3.2.0"

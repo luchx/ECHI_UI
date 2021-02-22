@@ -15,7 +15,7 @@ export function type(obj: any) {
  * @param code 复制内容
  * @param callback 回调提示
  */
-export default function copyToClipboard(code: string, callback: Function) {
+export function copyToClipboard(code: string, callback: Function) {
   const selection = document.getSelection();
   /** current selection */
   const selectedRange =

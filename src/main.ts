@@ -6,7 +6,11 @@ import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
-import { Button, Dialog } from "lcx-ui";
+import { Button, Dialog, Shared } from "lcx-ui";
+
+console.log({
+  Shared
+});
 
 Vue.config.productionTip = false;
 
