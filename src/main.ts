@@ -6,10 +6,12 @@ import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
-import { Button, Dialog, Shared } from "lcx-ui";
+import { Button, Dialog } from "lcx-ui";
+import { type, copyToClipboard } from "lcx-ui/lib/shared";
 
 console.log({
-  Shared
+  type,
+  copyToClipboard
 });
 
 Vue.config.productionTip = false;

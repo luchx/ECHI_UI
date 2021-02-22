@@ -10,3 +10,5 @@ declare module "vue/types/vue" {
 declare module "*.png";
 
 declare module "*.scss";
+
+declare module "lcx-ui/lib/shared";

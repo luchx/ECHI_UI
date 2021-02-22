@@ -11233,14 +11233,14 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-lcx-ui@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.0.16.tgz#1ad819913d532b37934a00322d4602385614b0b6"
-  integrity sha512-kGGjx4gDBYNLxSuqKuiSO7f63gns3pLh4GrXxGnQk6CB1zSXQnb4bJNupxKgUvIxEZb+bswiRMNWUcmn2IraWw==
+lcx-ui@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/lcx-ui/-/lcx-ui-1.1.0.tgz#97810e72e6a2a61c7b13f5529a35a4c442956228"
+  integrity sha512-b63OwxXZboxyVqa0sEIy7cAKv1E8e29Mw0FN3gKCLuEgPatyWi54Ip8f4XdPdzCTupquB+TaE/QGsBRAAN2OAg==
   dependencies:
     core-js "^3.8.3"
     element-ui "^2.15.0"
-    lcx-ui "^1.0.16"
+    lcx-ui "^1.1.0"
     lodash-es "^4.17.20"
     vue "^2.6.11"
     vue-router "^3.2.0"
