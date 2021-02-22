@@ -37,6 +37,7 @@
     "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
+    "async-validator": "^3.5.1",
     "core-js": "^3.8.3",
     "element-ui": "^2.15.0",
     "lcx-ui": "^1.1.0",

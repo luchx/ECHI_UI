@@ -10,7 +10,13 @@ module.exports = config({
 
     // 引入 vue 代码支持
     ["script", { type: "text/javascript", src: "/plugin/vue.min.js" }],
-    ["script", { type: "text/javascript", src: "//unpkg.com/element-ui@2.15.0/lib/index.js" }],
+    [
+      "script",
+      {
+        type: "text/javascript",
+        src: "/plugin/element-ui/index.js"
+      }
+    ]
   ],
   themeConfig: {
     hostname: "https://github.com/luchx/ECHI_UI.git",
