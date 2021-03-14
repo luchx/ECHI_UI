@@ -28,7 +28,7 @@
     "serve": "vue-cli-service serve",
     "release": "npm run build:lib && npm run build:theme && npm run build:esm",
     "build:lib": "rimraf lib && rollup -c",
-    "build:esm": "node ./scripts/bincomp.js",
+    "build:esm": "node ./scripts/bootstrap.js",
     "build:theme": "rimraf packages/theme-chalk/lib && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && rimraf packages/theme-chalk/lib",
     "clear": "rimraf lib && rimraf packages/theme-chalk/lib",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",

@@ -13,7 +13,7 @@ const START = 0;
 const buildChild = (start, end) => {
   let s = start;
   let e = end;
-  const c1 = cp.spawn("node", ["./scripts/build.component.js", s, e]);
+  const c1 = cp.spawn("node", ["./scripts/build.esm.js", s, e]);
   c1.stdout.on("data", function(data) {
     spinner.info(`${chalk.blue(data)}`);
   });
