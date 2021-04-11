@@ -7,8 +7,10 @@ declare module "vue/types/vue" {
   interface Vue {}
 }
 
+declare module "mui";
+
 declare module "*.png";
 
 declare module "*.scss";
 
-declare module "lcx-ui/lib/shared";
+declare module "*.md";

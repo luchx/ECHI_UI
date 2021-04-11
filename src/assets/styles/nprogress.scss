@@ -1,0 +1,28 @@
+@import "~nprogress/nprogress.css";
+
+#nprogress {
+  .bar {
+    background-color: var(--color-primary);
+  }
+
+  .peg {
+    box-shadow: 0 0 10px var(--color-primary), 0 0 5px var(--color-primary);
+  }
+
+  .spinner {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 50%;
+    right: 50%;
+    margin-top: -20px;
+    margin-right: -20px;
+  }
+
+  .spinner-icon {
+    width: 40px;
+    height: 40px;
+    border-top-color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+}

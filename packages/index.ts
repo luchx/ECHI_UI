@@ -1,8 +1,5 @@
 import { PluginFunction, VueConstructor } from "vue";
 
-// 共享方法
-import * as Shared from "./shared";
-
 // 基础组件
 import Dialog from "./dialog";
 import Button from "./button";
@@ -13,8 +10,6 @@ interface Components {
   [key: string]: any;
 }
 const components: Components = {
-  /* 共享方法 */
-  Shared,
   /* 基础组件 */
   Dialog,
   Button,
@@ -43,7 +38,6 @@ const install: InstallFunction = function(
     size: opts.size || "medium",
     zIndex: opts.zIndex || 2000
   };
-  Vue.prototype.$Shared = Shared;
   Object.keys(components).forEach(key => Vue.use(components[key]));
 };
 
@@ -61,8 +55,6 @@ if (process.env.NODE_ENV === "production") {
 export {
   version,
   install,
-  /* 共享方法 */
-  Shared,
   /* 基础组件 */
   Dialog,
   Button,

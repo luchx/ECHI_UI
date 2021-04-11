@@ -2,23 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-// 由于 lcx-ui 项目基于 element-ui 需要全量引入
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
+import "./mui";
+import "normalize.css";
+import "./assets/md-theme/vue.css";
+import "./assets/docs-theme/index.css";
+import "@styles/common.scss";
 
-import { Button, Dialog } from "lcx-ui";
-import { type, copyToClipboard } from "lcx-ui/lib/shared";
-
-console.log({
-  type,
-  copyToClipboard
+import components from "@/components";
+// 注册全局的组件
+Object.keys(components).forEach(key => {
+  Vue.component(key, components[key]);
 });
-
-Vue.config.productionTip = false;
-
-Vue.use(ElementUI);
-Vue.use(Button);
-Vue.use(Dialog);
 
 new Vue({
   router,
