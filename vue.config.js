@@ -43,6 +43,8 @@ module.exports = {
       .use("md-loader")
       .loader(resolve("./scripts/md-loader/index.js"))
       .options({
+        // 缓存文件目录，默认以 md 文件所在目录
+        cacheDir: resolve("node_modules")
         // lineNumbers: false,
         // toc: {},
         // anchor: {

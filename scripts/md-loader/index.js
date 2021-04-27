@@ -1,45 +1,70 @@
-/* eslint-disable */
+// @ts-nocheck
+const fs = require("fs");
+const shelljs = require("shelljs");
+const path = require("path");
 const { getOptions } = require("loader-utils");
-const { scopedCss, genInlineComponentText, stripStyle } = require("./util");
 const config = require("./config");
 
 module.exports = function(source) {
-  // @ts-ignore
-  const options = getOptions(this);
-  const md = config(options)
+  // 获取 loader 配置
+  const options = getOptions(this) || {};
+  const md = config(options);
   const content = md.render(source);
+  // 当前文件名
+  const fileName = path
+    .basename(this.resourcePath)
+    .replace(path.extname(this.resourcePath), "")
+    .replace("-", "");
+  // 缓存目录
+  const defaultDir = path.dirname(this.resourcePath);
+  const cacheDir =
+    (options.cacheDir || defaultDir) +
+    path.sep +
+    ".cacheDir" +
+    path.sep +
+    fileName;
 
-  const startTag = "<!--m-component-demo:";
+  if (!fs.existsSync(cacheDir)) {
+    shelljs.mkdir("-p", cacheDir);
+  }
+
+  const startTag = "<!--demo-begin:"; // 匹配开启标签
   const startTagLen = startTag.length;
-  const endTag = ":m-component-demo-->";
+  const endTag = ":demo-end-->"; // 匹配关闭标签
   const endTagLen = endTag.length;
 
-  let componenetsString = "";
-  let componenetsStyleString = "";
+  let components = ""; // 存储组件示例
+  let importVueString = ""; // 存储引入组件声明
   let uid = 0; // demo 的 uid
-  const output = []; // 输出的内容
+  const outputSource = []; // 输出的内容
   let start = 0; // 字符串开始位置
 
   let commentStart = content.indexOf(startTag);
   let commentEnd = content.indexOf(endTag, commentStart + startTagLen);
-  while (commentStart !== -1 && commentEnd !== -1) {
-    output.push(content.slice(start, commentStart));
 
+  while (commentStart !== -1 && commentEnd !== -1) {
+    outputSource.push(content.slice(start, commentStart));
+    // 获取代码块内容
     const commentContent = content.slice(
       commentStart + startTagLen,
       commentEnd
     );
-    // 组件名称
-    const componentNameId = `m-block-demo_${uid}`;
-    const demoComponentContent = genInlineComponentText(uid, commentContent);
-    output.push(`<template slot="source"><${componentNameId} /></template>`);
 
-    componenetsString += `${JSON.stringify(
-      componentNameId
-    )}: ${demoComponentContent},`;
-
-    const css = stripStyle(commentContent);
-    componenetsStyleString += scopedCss(css, `m-demo-container [data-${uid}]`);
+    const componentNameId = `demo_${fileName}_${uid}`;
+    const writeFile = `${cacheDir}/demo_${uid}.vue`;
+    // 将文件写入本地
+    fs.writeFileSync(writeFile, commentContent, "utf-8");
+    // 声明内容插槽传入
+    outputSource.push(
+      `<template slot="source"><${componentNameId} /></template>`
+    );
+    // 添加引入声明
+    importVueString += `\nimport ${componentNameId} from '${writeFile.replace(
+      /\\/g,
+      "/"
+    )}';`;
+    // 添加组件声明
+    components += `${componentNameId},`;
 
     // 重新计算下一次的位置
     uid++;
@@ -48,42 +73,23 @@ module.exports = function(source) {
     commentEnd = content.indexOf(endTag, commentStart + startTagLen);
   }
 
-  // 仅允许在 demo 不存在时，才可以在 Markdown 中写 script 标签
-  // todo: 优化这段逻辑
-  let pageScript = "";
-  if (componenetsString) {
-    // 自动将样式插入 head 中，请注意这里只能解析 css
-    pageScript = `<script>
-      export default {
-        name: 'm-demo-container',
-        components: {
-          ${componenetsString}
-        },
-        beforeCreate() {
-          let style = document.querySelector("#demo-style");
-          if (!style) {
-            style = document.createElement("style");
-            style.setAttribute("id", "demo-style");
-            style.setAttribute("type", "text/css");
-          }
-          style.innerHTML = ${JSON.stringify(componenetsStyleString)};
-          document.head.appendChild(style);
-        }
-      }
-    </script>`;
-  } else if (content.indexOf("<script>") === 0) {
-    // 硬编码，有待改善
-    start = content.indexOf("</script>") + "</script>".length;
-    pageScript = content.slice(0, start);
-  }
+  // 后续内容添加
+  outputSource.push(content.slice(start));
 
-  output.push(content.slice(start));
   return `
     <template>
-      <section class="content m-demo-container">
-        ${output.join("")}
+      <section class="demo-container">
+        ${outputSource.join("")}
       </section>
     </template>
-    ${pageScript}
+    <script>
+      ${importVueString}
+      export default {
+        name: 'demo-container',
+        components: {
+          ${components}
+        },
+      }
+    </script>
   `;
 };
