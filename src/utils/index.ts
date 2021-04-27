@@ -4,7 +4,8 @@ export function stripScript(content) {
 }
 
 export function stripStyle(content) {
-  const result = content.match(/<(style)\s*>([\s\S]+)<\/\1>/);
+  const result = content.match(/<(style)\s*\w*>([\s\S]+)<\/\1>/);
+
   return result && result[2] ? result[2].trim() : "";
 }
 

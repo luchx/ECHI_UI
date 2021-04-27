@@ -1,7 +1,8 @@
 <template>
   <div class="preview-block">
-    <m-page-header title="示例预览">
-      <m-space :size="16" align="center" slot="extra">
+    <div class="preview-header">
+      <div class="title">示例预览</div>
+      <div class="extra">
         <m-button type="text" icon="el-icon-video-play" @click="handleRun">
           运行
         </m-button>
@@ -11,8 +12,8 @@
         <m-button type="text" icon="el-icon-download" @click="handleSave">
           保存
         </m-button>
-      </m-space>
-    </m-page-header>
+      </div>
+    </div>
     <div class="preview-panel">
       <div class="preview-source">
         <codemirror v-model="codeSource" :options="cmOptions" />
@@ -150,7 +151,11 @@ export default {
 .preview-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
   height: 60px;
+  box-shadow: 0 2px 8px #f0f1f2;
+  background-color: #ffffff;
 }
 .preview-panel {
   display: flex;

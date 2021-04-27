@@ -46,7 +46,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .item {
   display: block;
   width: 120px;
@@ -189,7 +189,7 @@ export default {
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .box {
   width: 400px;
 }
@@ -252,7 +252,7 @@ tooltip 组件提供了两个不同的主题：dark 和 light。
 <script>
 export default {};
 </script>
-<style></style>
+<style scoped></style>
 ```
 
 :::
@@ -281,7 +281,7 @@ export default {};
 <script>
 export default {};
 </script>
-<style></style>
+<style scoped></style>
 ```
 
 :::

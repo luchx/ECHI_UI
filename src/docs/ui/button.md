@@ -55,7 +55,7 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .mui-button {
   margin-bottom: 16px;
 }
@@ -97,7 +97,7 @@ export default {};
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .mui-button {
   margin-bottom: 16px;
 }
@@ -122,7 +122,7 @@ export default {};
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .mui-button {
   margin-bottom: 16px;
 }
@@ -155,7 +155,7 @@ export default {};
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .mui-button {
   margin-bottom: 16px;
 }
@@ -214,7 +214,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .mui-button {
   margin-bottom: 16px;
 }
@@ -260,7 +260,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .mui-button {
   margin-bottom: 16px;
 }

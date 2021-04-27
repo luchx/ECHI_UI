@@ -20,7 +20,7 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .box > i {
   color: #606266;
   margin: 0 20px;

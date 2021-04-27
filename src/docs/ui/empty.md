@@ -22,7 +22,7 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .box {
   position: relative;
   display: block;
@@ -63,7 +63,7 @@ export default {};
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .box {
   position: relative;
   height: 200px;
@@ -87,7 +87,7 @@ export default {};
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .box {
   position: relative;
   height: 200px;
