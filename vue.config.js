@@ -40,11 +40,9 @@ module.exports = {
         }
       })
       .end()
-      .use("md-loader")
-      .loader(resolve("./scripts/md-loader/index.js"))
+      .use("md-enhance-vue")
+      .loader("md-enhance-vue")
       .options({
-        // 缓存文件目录，默认以 md 文件所在目录
-        cacheDir: resolve("node_modules")
         // lineNumbers: false,
         // toc: {},
         // anchor: {
